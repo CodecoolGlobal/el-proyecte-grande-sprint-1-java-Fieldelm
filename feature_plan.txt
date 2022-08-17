@@ -1,9 +1,16 @@
-receipe = feature
-	recepie_entity: id, title, category_id, ingredients =user story : ?
-	recepie category_entity: id, name, recepies(list with recipe id) =user story: ?
-	list all recepies(phase 1)= user sory: i as user wanna get recepies from the API, acc.criteria: for this request (url), i get this data(json)
+receipe = feature sprint 1
 
-home = feature :
+	recepie_entity: id, title, category_id, rating, ingredients =user story : ?
+	    task: creating receipe class
+	    task: creating category class
+
+	recepie category_entity: id, name, recepies(list with recipe id) =user story: ?
+
+	list all recepies(phase 1)= user sory: i as user wanna get recepies from the API, acc.criteria: for this request (url), i get this data(json)
+	     task: initialize recepies
+	     task: create conroller class for requests
+
+home = feature : sprint 2
 
 	landing page = user story
 		task: menu bar - reg, login
