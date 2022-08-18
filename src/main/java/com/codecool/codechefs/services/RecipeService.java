@@ -19,6 +19,11 @@ public class RecipeService {
 
     public String getAll(){
         List<Recipe> recipes = recipeDao.getAll();
-        return "";
+        return recipes.toString();
     }
+
+    public String getOne(int id){
+         return recipeDao.getOneById(id).toString();
+    }
+
 }
