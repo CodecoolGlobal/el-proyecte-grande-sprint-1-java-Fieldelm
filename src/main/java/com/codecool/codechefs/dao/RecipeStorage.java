@@ -4,7 +4,7 @@ import com.codecool.codechefs.models.Recipe;
 
 import java.util.List;
 
-public class RecipeStorage {
+public class RecipeStorage implements RecipeDao{
 
     private List<Recipe> recipes;
 
@@ -12,7 +12,23 @@ public class RecipeStorage {
         this.recipes = recipes;
     }
 
-    public List<Recipe> getRecipes() {
-        return recipes;
+    @Override
+    public List<Recipe> getAll() {
+        return null;
+    }
+
+    @Override
+    public Recipe getOne(int id) {
+        return null;
+    }
+
+    @Override
+    public void addRecipe(Recipe recipe) {
+
+    }
+
+    @Override
+    public void deleteRecipe(int id) {
+
     }
 }
