@@ -11,4 +11,8 @@ public class RecipeStorage {
     public RecipeStorage(List<Recipe> recipes) {
         this.recipes = recipes;
     }
+
+    public List<Recipe> getRecipes() {
+        return recipes;
+    }
 }
