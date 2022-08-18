@@ -1,19 +1,18 @@
 package com.codecool.codechefs.models;
 
 public class Recipe {
-
-    private String description;
-
     private int id;
 
     private String name;
+
+    private String description;
 
     private RecipeCategory category;
 
     private double rating;
 
 
-    public Recipe( String name, String description, RecipeCategory category, double rating) {
+    public Recipe(String name, String description, RecipeCategory category, double rating) {
         this.description = description;
         this.name = name;
         this.category = category;
