@@ -13,7 +13,7 @@ public class Recipe {
     private double rating;
 
 
-    public Recipe(String description, String name, RecipeCategory category, double rating) {
+    public Recipe( String name, String description, RecipeCategory category, double rating) {
         this.description = description;
         this.name = name;
         this.category = category;
