@@ -8,6 +8,7 @@ import java.util.List;
 
 public class RecipeService {
 
+    // convert recipe to JSON and add to the Controller
     private RecipeDao recipeDao;
 
     public RecipeService(RecipeDao recipeDao) {

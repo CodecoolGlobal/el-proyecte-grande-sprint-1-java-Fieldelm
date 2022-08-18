@@ -6,6 +6,8 @@ import java.util.List;
 
 public class RecipeStorage implements RecipeDao{
 
+    // implement RecipeDao and Override the methods and his type become to RecipeDao
+
     private List<Recipe> recipes;
 
     public RecipeStorage(List<Recipe> recipes) {
