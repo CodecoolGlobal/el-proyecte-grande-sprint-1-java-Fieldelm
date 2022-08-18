@@ -43,4 +43,15 @@ public class Recipe {
     public void setRating(double rating) {
         this.rating = rating;
     }
+
+    @Override
+    public String toString() {
+        return "Recipe{" +
+                ", id=" + id +
+                ", name='" + name + '\'' +
+                "description='" + description + '\'' +
+                ", category=" + category +
+                ", rating=" + rating +
+                '}';
+    }
 }
