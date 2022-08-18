@@ -26,23 +26,28 @@ public class DAOMemConfig {
     @Bean
     public List<Recipe> createRecipeList() {
         List<Recipe> recipes = new ArrayList<>();
-        recipes.add(new Recipe("Zsíros kenyér", "Ingredients \n" +
+        Recipe zsiros = new Recipe("Zsíros kenyér", "Ingredients \n" +
                 "grease\n" +
                 "slice of bread\n" +
                 "onion (optional)\n" +
                 "salt" +
                 "Method: \n" +
-                "Take the grease and spread it on the bread slice", RecipeCategory.MAIN_DISH, 0));
-        recipes.add(new Recipe("Mákos tészta", "Ingredients\n" +
+                "Take the grease and spread it on the bread slice", RecipeCategory.MAIN_DISH, 0);
+
+        zsiros.setId(1);
+        recipes.add(zsiros);
+        Recipe makos = new Recipe("Mákos tészta", "Ingredients\n" +
                 "ground poppy seed\n" +
                 "pasta\n" +
                 "powdered sugar" +
                 "Method: \n" +
                 "1. Cook the pasta\n" +
                 "2. Mix poppy seed and powdered sugar 2:1\n" +
-                "3. Sprinkle the cooked pasta with the poppy-sugar mix. ", RecipeCategory.DESSERT, 0));
+                "3. Sprinkle the cooked pasta with the poppy-sugar mix. ", RecipeCategory.DESSERT, 0);
+        makos.setId(2);
+        recipes.add(makos);
 
-        recipes.add(new Recipe("Stone soup", "Ingredients:\n" +
+        Recipe koleves = new Recipe("Stone soup", "Ingredients:\n" +
                 "stone\n" +
                 "water\n" +
                 "vegetables (optional)\n" +
@@ -50,8 +55,9 @@ public class DAOMemConfig {
                 "Method:\n" +
                 "1 put stone into a pot of water\n" +
                 "2 put vegetables and seasoning if needed\n" +
-                "3 cook them", RecipeCategory.SOUP, 0));
-
+                "3 cook them", RecipeCategory.SOUP, 0);
+        koleves.setId(3);
+        recipes.add(koleves);
         return recipes;
 
     }
