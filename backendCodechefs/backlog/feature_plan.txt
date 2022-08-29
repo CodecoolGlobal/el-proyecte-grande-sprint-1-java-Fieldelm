@@ -1,0 +1,32 @@
+receipe = feature sprint 1
+
+	recepie_entity: id, title, category_id, rating, ingredients =user story : ?
+	    task: creating receipe class
+	    task: creating category class
+
+	recepie category_entity: id, name, recepies(list with recipe id) =user story: ?
+
+	list all recepies(phase 1)= user sory: i as user wanna get recepies from the API, acc.criteria: for this request (url), i get this data(json)
+	     task: initialize recepies
+	     task: create conroller class for requests
+
+home = feature : sprint 2
+
+	landing page = user story
+		task: menu bar - reg, login
+		task: toolbar - filer recepies -user story
+		task: recepes on cards
+
+
+	list recepies (recepie -component- on a card- with photo, title)- user story
+
+chef recepies- user story: i as a chef wanna create a new r.
+
+
+search in toolb -u.s.
+ recepie category (dessert, main disg..)- search for cat
+ category-entity
+
+ list all rec (phase 2)- see the recepie on landing p
+
+
