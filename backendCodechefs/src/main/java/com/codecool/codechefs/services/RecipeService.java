@@ -3,6 +3,7 @@ package com.codecool.codechefs.services;
 import com.codecool.codechefs.dao.RecipeDao;
 import com.codecool.codechefs.dao.RecipeStorage;
 import com.codecool.codechefs.models.Recipe;
+import com.codecool.codechefs.models.RecipeCategory;
 import com.google.gson.Gson;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -27,4 +28,7 @@ public class RecipeService {
          return recipeDao.getOneById(id).toString();
     }
 
+    public List<Recipe> getRecipesByCategory(RecipeCategory category) {
+        return recipeDao.getRecipesByCategory(category);
+    }
 }

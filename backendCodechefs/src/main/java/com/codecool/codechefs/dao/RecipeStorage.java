@@ -1,10 +1,12 @@
 package com.codecool.codechefs.dao;
 
 import com.codecool.codechefs.models.Recipe;
+import com.codecool.codechefs.models.RecipeCategory;
 
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 public class RecipeStorage implements RecipeDao{
 
@@ -14,6 +16,13 @@ public class RecipeStorage implements RecipeDao{
 
     public RecipeStorage(List<Recipe> recipes) {
         this.recipes = recipes;
+    }
+
+    @Override
+    public List<Recipe> getRecipesByCategory(RecipeCategory category) {
+        return recipes.stream()
+                .filter(recipe -> recipe.getCategory().equals(category))
+                .collect(Collectors.toList());
     }
 
     @Override
