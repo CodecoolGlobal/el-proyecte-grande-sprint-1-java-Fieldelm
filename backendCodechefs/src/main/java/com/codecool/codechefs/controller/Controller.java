@@ -29,8 +29,8 @@ public class Controller {
     }
 
     @GetMapping(value = "filter-recipe-by-category")
-    public List<Recipe> getRecipeByCategory(@RequestParam (name = "category")RecipeCategory category){
-        return null;
+    public List<Recipe> getRecipesByCategory(@RequestParam (name = "category")RecipeCategory category){
+        return recipeService.getRecipesByCategory(category);
     }
 
 }
