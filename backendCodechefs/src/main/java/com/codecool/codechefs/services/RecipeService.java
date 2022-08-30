@@ -29,6 +29,6 @@ public class RecipeService {
     }
 
     public List<Recipe> getRecipesByCategory(RecipeCategory category) {
-        return null;
+        return recipeDao.getRecipesByCategory(category);
     }
 }
