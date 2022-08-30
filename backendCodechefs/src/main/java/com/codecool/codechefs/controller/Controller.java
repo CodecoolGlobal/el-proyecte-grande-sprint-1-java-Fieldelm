@@ -1,10 +1,12 @@
 package com.codecool.codechefs.controller;
 
 import com.codecool.codechefs.models.Recipe;
+import com.codecool.codechefs.models.RecipeCategory;
 import com.codecool.codechefs.services.RecipeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -26,6 +28,9 @@ public class Controller {
         return recipeService.getOne(id);
     }
 
-
+    @GetMapping(value = "filter-recipe-by-category")
+    public List<Recipe> getRecipeByCategory(@RequestParam (name = "category")RecipeCategory category){
+        return null;
+    }
 
 }
