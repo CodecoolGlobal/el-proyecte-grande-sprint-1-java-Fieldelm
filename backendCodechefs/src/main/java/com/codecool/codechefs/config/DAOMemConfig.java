@@ -2,40 +2,46 @@ package com.codecool.codechefs.config;
 
 import com.codecool.codechefs.dao.RecipeDao;
 import com.codecool.codechefs.dao.RecipeStorage;
+import com.codecool.codechefs.models.Ingredient;
 import com.codecool.codechefs.models.Recipe;
 import com.codecool.codechefs.models.RecipeCategory;
 import com.codecool.codechefs.services.RecipeService;
 import org.springframework.context.annotation.*;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Configuration
 public class DAOMemConfig {
 
     @Bean
-    public RecipeDao createRecipeDao(List<Recipe> recipes){
+    public RecipeDao createRecipeDao(List<Recipe> recipes) {
         return new RecipeStorage(recipes);
     }
 
     @Bean
-    public RecipeService createRecipeService(RecipeDao recipeDao){
-      return new RecipeService(recipeDao);
+    public RecipeService createRecipeService(RecipeDao recipeDao) {
+        return new RecipeService(recipeDao);
     }
 
     @Bean
     public List<Recipe> createRecipeList() {
         List<Recipe> recipes = new ArrayList<>();
-        Recipe zsiros = new Recipe("Zsíros kenyér", "Ingredients \n" +
-                "grease\n" +
-                "slice of bread\n" +
-                "onion (optional)\n" +
-                "salt" +
-                "Method: \n" +
-                "Take the grease and spread it on the bread slice", RecipeCategory.MAIN_DISH, 0);
 
-        zsiros.setId(1);
-        recipes.add(zsiros);
+        String zsirosKenyerDescription = "Take the grease and spread it on the bread slice";
+        List<Ingredient> zsirosIngredients = new ArrayList<>();
+        zsirosIngredients.add(new Ingredient("bread", "slice", 1.0));
+        zsirosIngredients.add(new Ingredient("grease", "tbsp", 1.0));
+        zsirosIngredients.add(new Ingredient("salt", "optional", 0.0));
+
+        Recipe zsirosKenyer = new Recipe("Zsiroskenyer", RecipeCategory.MAIN_DISH, zsirosIngredients, zsirosKenyerDescription, 1);
+
+
+        zsirosKenyer.setId(1);
+        recipes.add(zsirosKenyer);
+        /*
         Recipe makos = new Recipe("Mákos tészta", "Ingredients\n" +
                 "ground poppy seed\n" +
                 "pasta\n" +
@@ -57,8 +63,11 @@ public class DAOMemConfig {
                 "2 put vegetables and seasoning if needed\n" +
                 "3 cook them", RecipeCategory.SOUP, 0);
         koleves.setId(3);
-        recipes.add(koleves);
+        recipes.add(koleves);*/
         return recipes;
 
     }
+
+
 }
+
