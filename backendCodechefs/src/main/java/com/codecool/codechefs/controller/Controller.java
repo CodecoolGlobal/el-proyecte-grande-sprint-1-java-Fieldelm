@@ -33,4 +33,9 @@ public class Controller {
         return recipeService.getRecipesByCategory(category);
     }
 
+    @GetMapping(value = "filter-recipe-by-ingredients")
+    public List<Recipe> getRecipesByIngredients(){
+        return null;
+    }
+
 }
