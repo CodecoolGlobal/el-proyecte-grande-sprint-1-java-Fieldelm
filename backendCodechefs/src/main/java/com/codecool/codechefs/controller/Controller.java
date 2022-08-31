@@ -17,7 +17,7 @@ public class Controller {
     private RecipeService recipeService;
 
 
-    @GetMapping(value = "get-all-recepies")
+    @GetMapping(value = "get-all-recipes")
     @ResponseBody
     public List<Recipe> getAllRecipes(){
         return recipeService.getAll();
