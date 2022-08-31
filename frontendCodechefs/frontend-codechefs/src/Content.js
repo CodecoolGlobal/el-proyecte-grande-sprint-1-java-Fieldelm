@@ -16,6 +16,7 @@ const Content = () => {
         return await data.json()
     }
 
+
     const cardList = recipes === undefined ? "loading..." : <RecipeCardList list={recipes}></RecipeCardList>
 
     console.log(recipes)
