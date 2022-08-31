@@ -53,6 +53,13 @@ public class RecipeStorage implements RecipeDao{
 
     @Override
     public List<Recipe> getRecipesByIngredients(List<String> ingredients) {
-        return null;
+        return recipes.stream().filter(recipe -> {
+            for(String ingredientName: ingredients){
+                if(!recipe.containIngredient(ingredientName)){
+                    return false;
+                }
+            }
+            return true;
+        }).collect(Collectors.toList());
     }
 }
