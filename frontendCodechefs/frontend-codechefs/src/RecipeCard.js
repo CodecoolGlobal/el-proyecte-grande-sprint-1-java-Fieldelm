@@ -1,13 +1,17 @@
-const RecipeCard = ({name, description}) => {
+import {Link} from "react-router-dom";
+
+const RecipeCard = ({name, description, id}) => {
 
     return(
-        <div className={"recipeCard"}>
-            <div className={"recipeContainer"}>
-                <p><span>Name:</span>{name}</p>
-                <p><span>Description:</span>{description}</p>
-            </div>
+        <Link to={`recipeCard/${id}`} params={{recipeId:{id}}}>
+            <div className={"recipeCard"}>
+                <div className={"recipeContainer"}>
+                    <p>{name}</p>
+                </div>
 
-        </div>
+            </div>
+        </Link>
+
     )
 
 }
