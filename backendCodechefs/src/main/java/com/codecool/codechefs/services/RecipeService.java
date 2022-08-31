@@ -31,4 +31,8 @@ public class RecipeService {
     public List<Recipe> getRecipesByCategory(RecipeCategory category) {
         return recipeDao.getRecipesByCategory(category);
     }
+
+    public List<Recipe> getRecipesByIngredients(List<String> ingredients) {
+        return recipeDao.getRecipesByIngredients(ingredients);
+    }
 }

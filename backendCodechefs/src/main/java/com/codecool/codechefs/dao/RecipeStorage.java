@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Optional;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class RecipeStorage implements RecipeDao{
 
@@ -48,5 +49,10 @@ public class RecipeStorage implements RecipeDao{
     @Override
     public void deleteRecipe(int id) {
 
+    }
+
+    @Override
+    public List<Recipe> getRecipesByIngredients(List<String> ingredients) {
+        return null;
     }
 }

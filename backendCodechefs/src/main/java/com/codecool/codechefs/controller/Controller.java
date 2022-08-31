@@ -35,7 +35,7 @@ public class Controller {
 
     @GetMapping(value = "filter-recipe-by-ingredients")
     public List<Recipe> getRecipesByIngredients(@RequestBody List<String> ingredients){
-        return null;
+        return recipeService.getRecipesByIngredients(ingredients);
     }
 
 }

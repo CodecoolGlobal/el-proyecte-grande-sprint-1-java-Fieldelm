@@ -18,4 +18,5 @@ public interface RecipeDao {
 
     void deleteRecipe(int id);
 
+    List<Recipe> getRecipesByIngredients(List<String> ingredients);
 }
