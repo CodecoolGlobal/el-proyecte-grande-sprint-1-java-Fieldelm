@@ -1,23 +1,23 @@
 package com.codecool.codechefs.models;
 
 public class Ingredient {
-    String ingredient;
+    String name;
     String unit;
     Double value;
 
 
     public Ingredient(String ingredient, String unit, Double value) {
-        this.ingredient = ingredient;
+        this.name = ingredient;
         this.unit = unit;
         this.value = value;
     }
 
-    public String getIngredient() {
-        return ingredient;
+    public String getName() {
+        return name;
     }
 
     public void setIngredient(String ingredient) {
-        this.ingredient = ingredient;
+        this.name = name;
     }
 
     public String getUnit() {

@@ -9,7 +9,7 @@ public class Recipe {
 
     private String name;
 
-    private String description;
+    private List<String> description;
 
     private List<Ingredient> ingredients;
 
@@ -20,7 +20,7 @@ public class Recipe {
     private int servings;
 
 
-    public Recipe(String name, RecipeCategory category, List<Ingredient> ingredients, String description, int servings) {
+    public Recipe(String name, RecipeCategory category, List<Ingredient> ingredients, List<String> description, int servings) {
         this.name = name;
         this.ingredients = ingredients;
         this.description = description;
@@ -33,7 +33,7 @@ public class Recipe {
         this.id = id;
     }
 
-    public String getDescription() {
+    public List<String> getDescription() {
         return description;
     }
 
