@@ -1,4 +1,5 @@
 const RecipeCard = ({name, imageURL:image}) => {
+    console.log(image)
 
     return(
         <div className={"recipeCard"}>
