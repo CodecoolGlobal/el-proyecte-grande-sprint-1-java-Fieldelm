@@ -1,38 +1,62 @@
-.App {
-  text-align: center;
+.topnav {
+    background-color: gold;
+    overflow: hidden;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Style the links inside the navigation bar */
+.topnav a {
+    float: left;
+    color: dimgrey;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* Change the color of links on hover */
+.topnav a:hover {
+    background-color: #ddd;
+    color: black;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+/* Add a color to the active/current link */
+.topnav a.active {
+    background-color: darkgoldenrod;
+    color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.recipeCard {
+    /* Add shadows to create the "card" effect */
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    border-radius: 5px; /* 5px rounded corners */
+    width: 150px;
+    padding: 30px;
+    font-size: 10px;
+
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* On mouse-over, add a deeper shadow */
+.recipeCard:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
+
+/* Add some padding inside the card container */
+.recipeContainer {
+    padding: 2px 16px;
+}
+
+.cardContainer{
+    display: flex;
+    padding: 40px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 20px;
+}
+
+
+
+
+
+
+
