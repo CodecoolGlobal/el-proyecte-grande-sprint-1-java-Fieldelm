@@ -13,7 +13,7 @@ function App() {
     }, []);
 
     const fetchData = async () => {
-        let data = await fetch(`/get-all-recepies`)
+        let data = await fetch(`/get-all-recipes`)
         return await data.json()
     }
 
