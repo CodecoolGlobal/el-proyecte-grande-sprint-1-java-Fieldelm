@@ -1,7 +1,7 @@
 import RecipeCard from "./RecipeCard";
 
 const recipeCardList = ({list}) => {
-    const cardList = list.map(recipe => <RecipeCard name={recipe.name} description={recipe.description}></RecipeCard>)
+    const cardList = list.map(recipe => <RecipeCard name={recipe.name} imageURL={recipe.imageURL}></RecipeCard>)
 
     return(
         <div className={"cardContainer"}>
