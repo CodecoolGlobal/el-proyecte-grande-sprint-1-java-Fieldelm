@@ -1,3 +1,6 @@
+
+
+
 .topnav {
     background-color: gold;
     overflow: hidden;
@@ -27,7 +30,7 @@
 
 .recipeCard {
     /* Add shadows to create the "card" effect */
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     transition: 0.3s;
     border-radius: 5px; /* 5px rounded corners */
     width: 150px;
@@ -38,7 +41,7 @@
 
 /* On mouse-over, add a deeper shadow */
 .recipeCard:hover {
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
 
 /* Add some padding inside the card container */
@@ -46,13 +49,49 @@
     padding: 2px 16px;
 }
 
-.cardContainer{
+.cardContainer {
     display: flex;
     padding: 40px;
     flex-direction: row;
     flex-wrap: wrap;
     margin: 20px;
 }
+
+
+video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -10;
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+
+
+}
+
+.video-wrapper {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 85%;
+
+}
+
+.video-container {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    background-color: black;
+
+}
+
 
 
 

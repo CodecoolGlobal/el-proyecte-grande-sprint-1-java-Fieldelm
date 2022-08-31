@@ -1,5 +1,6 @@
 import RecipeCardList from "./RecipeCardList";
 import {useEffect, useState} from "react"
+import Video from "./Video";
 
 const Content = () => {
 
@@ -21,6 +22,7 @@ const Content = () => {
     return(
 
         <div >
+            <Video/>
             {cardList}
         </div>
 
