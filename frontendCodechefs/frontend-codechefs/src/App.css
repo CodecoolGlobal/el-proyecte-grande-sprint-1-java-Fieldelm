@@ -32,8 +32,15 @@
     border-radius: 5px; /* 5px rounded corners */
     width: 150px;
     padding: 30px;
-    font-size: 10px;
+    font-size: 15px;
 
+}
+
+.recipeContainer img{
+    width: 100%;
+    height: 80%;
+
+ 
 }
 
 /* On mouse-over, add a deeper shadow */
