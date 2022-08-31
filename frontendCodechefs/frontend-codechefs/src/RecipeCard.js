@@ -1,10 +1,11 @@
-const RecipeCard = ({name, description}) => {
+const RecipeCard = ({name, imageURL:image}) => {
 
     return(
         <div className={"recipeCard"}>
             <div className={"recipeContainer"}>
-                <p><span>Name:</span>{name}</p>
-                <p><span>Description:</span>{description}</p>
+                <img src={image} alt={name} />
+                <p>{name}</p>
+               
             </div>
 
         </div>
