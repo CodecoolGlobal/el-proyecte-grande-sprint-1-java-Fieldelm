@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import App from './App';
-import RecipePage from "./RecipePage";
+import App from './component/App';
+import RecipePage from "./component/RecipePage";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 
 

@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import {useParams} from "react-router-dom";
 import Header from "./Header";
 import { useState } from "react";
-import {getApi} from "./fetchAPI"
+import {getApi} from "../util/fetchAPI"
 import { RecipeMainPage } from "./RecipeMainPage";
 
 const RecipePage = () => {

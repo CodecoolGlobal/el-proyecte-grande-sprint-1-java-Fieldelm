@@ -1,6 +1,6 @@
-import './stylesheets/Video.css';
-import './stylesheets/Navbar.css';
-import './stylesheets/Recipe.css';
+import '../stylesheets/Video.css';
+import '../stylesheets/Navbar.css';
+import '../stylesheets/Recipe.css';
 import Header from "./Header";
 import Content from "./Content";
 
