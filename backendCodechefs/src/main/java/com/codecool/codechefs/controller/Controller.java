@@ -38,4 +38,9 @@ public class Controller {
         return recipeService.getRecipesByIngredients(ingredients);
     }
 
+    @GetMapping(value = "search-recipe-ba-name")
+    public List<Recipe> searchRecipesByName(@RequestParam(name="name") String searchInput){
+        return recipeService.searchRecipesByName(searchInput);
+    }
+
 }
