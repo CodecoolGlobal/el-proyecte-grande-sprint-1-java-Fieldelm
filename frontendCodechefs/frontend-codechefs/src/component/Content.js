@@ -1,7 +1,7 @@
 import RecipeCardList from "./RecipeCardList";
 import {useEffect, useState} from "react"
 import Video from "./Video";
-import {getApi} from "./fetchAPI"
+import {getApi} from "../util/fetchAPI"
 
 const Content = () => {
 
