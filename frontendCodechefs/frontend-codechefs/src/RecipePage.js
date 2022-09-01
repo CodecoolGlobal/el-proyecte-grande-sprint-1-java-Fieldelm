@@ -16,14 +16,17 @@ const RecipePage = () => {
 
 
     const fetchData = async () => {
-        let data = await fetch(`get-one-recipe/${recipeId}`)
+        let data = await fetch(`/get-one-recipe/${recipeId}`)
         console.log(data)
         return await data.json()
     }
 
+    console.log(recipe)
+
     return(
         <div>
             <Header/>
+            {recipeId}
         </div>
     )
 }
