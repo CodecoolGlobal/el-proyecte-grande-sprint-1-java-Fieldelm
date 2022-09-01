@@ -64,9 +64,9 @@ public class RecipeStorage implements RecipeDao{
     }
 
     @Override
-    public List<Recipe> getRecipesByName(String searchString) {
+    public List<Recipe> getRecipesByName(String subString) {
         return recipes.stream()
-                .filter(recipe -> recipe.getName().contains(searchString))
+                .filter(recipe -> recipe.getName().contains(subString))
                 .collect(Collectors.toList());
     }
 }

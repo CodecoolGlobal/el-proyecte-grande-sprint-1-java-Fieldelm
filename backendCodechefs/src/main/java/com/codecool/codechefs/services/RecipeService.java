@@ -35,4 +35,8 @@ public class RecipeService {
     public List<Recipe> getRecipesByIngredients(List<String> ingredients) {
         return recipeDao.getRecipesByIngredients(ingredients);
     }
+
+    public List<Recipe> searchRecipesByName(String searchString){
+        return recipeDao.getRecipesByName(searchString);
+    }
 }
