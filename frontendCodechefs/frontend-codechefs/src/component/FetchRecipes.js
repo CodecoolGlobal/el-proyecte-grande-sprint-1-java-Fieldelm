@@ -8,7 +8,7 @@ const FetchRecipes = () =>{
     const [recipes, setRecipes] = useState()
 
     useEffect(() => {
-        getApi(`get-all-recepies`)
+        getApi(`/get-all-recepies`)
             .then(_res => setRecipes(_res))
     }, []);
 

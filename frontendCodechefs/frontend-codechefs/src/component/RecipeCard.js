@@ -1,10 +1,10 @@
 import {Link} from "react-router-dom";
 
-const RecipeCard = ({name, id, imageURL}) => {
+const RecipeCard = ({name, id, imageURL, key}) => {
 
     return (
             <div className="recipe-container">
-                <Link to={`recipeCard/${id}`} params={{recipeId: {id}}}>
+                <Link to={`recipeCard/${id}`}  style={{ textDecoration: 'none' }} params={{recipeId: {id}}}>
                 <div className="container__text">
                     <img src={imageURL} alt="Pancake"/>
                     <h1>{name}</h1>

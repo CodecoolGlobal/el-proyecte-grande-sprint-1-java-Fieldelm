@@ -11,7 +11,7 @@ root.render(
   <BrowserRouter>
       <Routes>
           <Route path="/" element={<App />}/>
-          <Route path="recipeCard/:recipeId" element={<RecipePage />} />
+          <Route path="all-recipes/recipeCard/:recipeId" element={<RecipePage />} />
           <Route path="all-recipes" element={<FetchRecipes />}/>
       </Routes>
   </BrowserRouter>
