@@ -8,7 +8,7 @@ const Content = () => {
     const [recipes, setRecipes] = useState()
 
      useEffect(() => {
-       getApi(`get-all-recepies`)
+       getApi(`/get-all-recipes`)
             .then(_res => setRecipes(_res))
     }, []);
 
