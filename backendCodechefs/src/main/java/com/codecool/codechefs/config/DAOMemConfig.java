@@ -57,7 +57,7 @@ public class DAOMemConfig {
         List<Ingredient> breadWithGreaseIngredients = new ArrayList<>();
         breadWithGreaseIngredients.add(new Ingredient("bread", "slice", 1.0));
         breadWithGreaseIngredients.add(new Ingredient("bacon grease", "tbsp", 1.0));
-        breadWithGreaseIngredients.add(new Ingredient("salt", "optional", 0.0));
+        breadWithGreaseIngredients.add(new Ingredient("salt", "(optional)", 0.0));
 
         return new Recipe("Bread with bacon grease", RecipeCategory.MAIN_DISH, breadWithGreaseIngredients, breadWithGreaseDescription, 1);
 
@@ -87,7 +87,7 @@ public class DAOMemConfig {
     private Recipe crateStoneSoup() {
 
         List<String> stoneSoupDescription = new ArrayList<>();
-        String stoneSoupDescription1 = "Put stone into a pot of water";
+        String stoneSoupDescription1 = "put stone into a pot of water";
         String stoneSoupDescription2 = "put vegetables and seasoning if needed";
         String stoneSoupDescription3 = "cook them";
 
@@ -97,7 +97,7 @@ public class DAOMemConfig {
 
         List<Ingredient> stoneSoupIngredients = new ArrayList<>();
         stoneSoupIngredients.add(new Ingredient("stone", "", 1.0));
-        stoneSoupIngredients.add(new Ingredient("vegetables(optional)", " any amount", 1.0));
+        stoneSoupIngredients.add(new Ingredient("vegetables", "(optional)", 0.0));
 
         return new Recipe("Stone soup", RecipeCategory.SOUP, stoneSoupIngredients, stoneSoupDescription, 1);
     }

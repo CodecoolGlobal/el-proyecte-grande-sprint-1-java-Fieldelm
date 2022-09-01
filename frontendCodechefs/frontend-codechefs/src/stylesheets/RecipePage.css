@@ -1,0 +1,49 @@
+.recipeFirst-container{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction:row;
+    padding: 10px;
+    column-gap: 20px;
+    row-gap: 20px
+    
+}
+
+.recipeFirst-container img{
+   width: 600px;
+   height: 500px;
+   
+}
+
+.recipeIngredients-container{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction:column;
+    column-gap: 50px;
+    row-gap: 50px;   
+    padding: 30px;
+   
+}
+
+
+
+.recipePageMain h2{
+font-size: xx-large;
+color: #000;
+}
+
+.recipePageMain{
+    line-height: 70px;
+    font-size: x-large;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction:row;
+    padding: 10px;
+    column-gap: 20px;
+    row-gap: 20px;
+    margin: 20px;
+}
+
+ol{
+    padding: 20px
+}
+
