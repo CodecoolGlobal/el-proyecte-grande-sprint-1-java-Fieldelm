@@ -1,31 +1,27 @@
 import RecipeCardList from "./RecipeCardList";
 import {useEffect, useState} from "react"
 import Video from "./Video";
+import {getApi} from "../util/fetchAPI"
 
 const Content = () => {
 
     const [recipes, setRecipes] = useState()
 
-    useEffect(() => {
-        fetchData()
+     useEffect(() => {
+       getApi(`get-all-recepies`)
             .then(_res => setRecipes(_res))
     }, []);
 
-    const fetchData = async () => {
-        let data = await fetch(`get-all-recepies`)
-        return await data.json()
-    }
 
     const cardList = recipes === undefined ? "loading..." : <RecipeCardList list={recipes}></RecipeCardList>
 
-    console.log()
+    console.log(recipes)
     return(
 
         <div >
             <Video/>
             {cardList}
         </div>
-
 
     )
 }

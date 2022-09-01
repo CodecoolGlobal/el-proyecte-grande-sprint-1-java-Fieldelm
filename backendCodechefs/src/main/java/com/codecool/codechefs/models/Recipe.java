@@ -19,6 +19,8 @@ public class Recipe {
 
     private int servings;
 
+    private String imageURL;
+
 
     public Recipe(String name, RecipeCategory category, List<Ingredient> ingredients, List<String> description, int servings) {
         this.name = name;
@@ -69,6 +71,13 @@ public class Recipe {
         return ingredients.stream().anyMatch(ingredient -> ingredient.getName().equals(ingredientName));
     }
 
+    public String getImageURL() {
+        return imageURL;
+    }
+
+    public void setImageURL(String imageURL) {
+        this.imageURL = imageURL;
+    }
 
     @Override
     public String toString() {
