@@ -62,4 +62,11 @@ public class RecipeStorage implements RecipeDao{
             return true;
         }).collect(Collectors.toList());
     }
+
+    @Override
+    public List<Recipe> getRecipesByName(String searchString) {
+        return recipes.stream()
+                .filter(recipe -> recipe.getName().startsWith(searchString))
+                .collect(Collectors.toList());
+    }
 }
