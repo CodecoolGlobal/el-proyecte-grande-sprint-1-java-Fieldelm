@@ -13,6 +13,7 @@ const Content = () => {
 
     const fetchData = async () => {
         let data = await fetch(`get-all-recepies`)
+        console.log(data)
         return await data.json()
     }
 
