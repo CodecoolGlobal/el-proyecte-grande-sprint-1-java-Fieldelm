@@ -6,9 +6,9 @@ const Header = () => {
     return(
         <div className="topnav">
             <nav>
-                <a className="active" href="src/component/Header#home">Home</a>
-                <Link to="/invoices">Invoices</Link>
-                <a href="src/component/Header#contact">Recipes</a>
+                <Link className="active" to="/">Home</Link>
+                <Link to="/all-recipes">Recipes</Link>
+                <a href="src/component/Header#contact">Add recipes</a>
                 <a href="src/component/Header#about">About us</a>
             </nav>
         </div>
