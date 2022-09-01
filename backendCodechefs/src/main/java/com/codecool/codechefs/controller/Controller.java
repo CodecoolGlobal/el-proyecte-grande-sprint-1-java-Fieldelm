@@ -24,7 +24,7 @@ public class Controller {
     }
 
     @GetMapping(value = "get-one-recipe/{id}")
-    public String getOneRecipe(@PathVariable int id){
+    public Recipe getOneRecipe(@PathVariable int id){
         return recipeService.getOne(id);
     }
 

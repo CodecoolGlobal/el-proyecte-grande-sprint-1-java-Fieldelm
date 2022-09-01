@@ -24,8 +24,8 @@ public class RecipeService {
         return recipes;
     }
 
-    public String getOne(int id){
-         return recipeDao.getOneById(id).toString();
+    public Recipe getOne(int id){
+         return recipeDao.getOneById(id);
     }
 
     public List<Recipe> getRecipesByCategory(RecipeCategory category) {
