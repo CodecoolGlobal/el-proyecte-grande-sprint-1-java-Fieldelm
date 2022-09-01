@@ -67,6 +67,10 @@ public class Recipe {
         return rating;
     }
 
+    public boolean containIngredient(String ingredientName){
+        return ingredients.stream().anyMatch(ingredient -> ingredient.getName().equals(ingredientName));
+    }
+
     public String getImageURL() {
         return imageURL;
     }

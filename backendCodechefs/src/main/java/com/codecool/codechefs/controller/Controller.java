@@ -17,7 +17,7 @@ public class Controller {
     private RecipeService recipeService;
 
 
-    @GetMapping(value = "get-all-recepies")
+    @GetMapping(value = "get-all-recipes")
     @ResponseBody
     public List<Recipe> getAllRecipes(){
         return recipeService.getAll();
@@ -31,6 +31,16 @@ public class Controller {
     @GetMapping(value = "filter-recipe-by-category")
     public List<Recipe> getRecipesByCategory(@RequestParam (name = "category")RecipeCategory category){
         return recipeService.getRecipesByCategory(category);
+    }
+
+    @GetMapping(value = "filter-recipe-by-ingredients")
+    public List<Recipe> getRecipesByIngredients(@RequestBody List<String> ingredients){
+        return recipeService.getRecipesByIngredients(ingredients);
+    }
+
+    @GetMapping(value = "search-recipe-ba-name")
+    public List<Recipe> searchRecipesByName(@RequestParam(name="name") String searchInput){
+        return recipeService.searchRecipesByName(searchInput);
     }
 
 }
