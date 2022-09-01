@@ -1,32 +1,31 @@
+import { useEffect } from "react";
 import {useParams} from "react-router-dom";
 import Header from "./Header";
-import {useState} from "react";
-import {useEffect} from "react";
+import { useState } from "react";
+import {getApi} from "./fetchAPI"
+import { RecipeMainPage } from "./RecipeMainPage";
 
 const RecipePage = () => {
 
-    const [recipe, setRecipe] = useState()
-
     const {recipeId} = useParams()
+    const [recipe, setRecipe] = useState();
+    console.log(recipeId);
 
-    useEffect(() => {
-        fetchData()
-            .then(_res => setRecipe(_res))
+
+    useEffect(()=>{
+        getApi(`/get-one-recipe/${recipeId}`)
+        .then(_res => setRecipe(_res));
     }, []);
 
 
-    const fetchData = async () => {
-        let data = await fetch(`/get-one-recipe/${recipeId}`)
-        console.log(data)
-        return await data.json()
-    }
 
-    console.log(recipe)
+    const recipeData = recipe === undefined ? "loading..." : <RecipeMainPage recipe={recipe}></RecipeMainPage>
+
 
     return(
         <div>
             <Header/>
-            {recipeId}
+            {recipeData}
         </div>
     )
 }
