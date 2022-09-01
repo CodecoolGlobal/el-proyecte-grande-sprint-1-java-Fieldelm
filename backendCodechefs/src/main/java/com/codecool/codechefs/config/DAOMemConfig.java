@@ -32,14 +32,17 @@ public class DAOMemConfig {
 
         Recipe breadWithBaconGrease = createBreadWithBaconGrease();
         breadWithBaconGrease.setId(1);
+        breadWithBaconGrease.setImageURL("/recipe_img/1.jpg");
         recipes.add(breadWithBaconGrease);
 
         Recipe pastaWithPoppySeed = createPastaWithPoppySeed();
         pastaWithPoppySeed.setId(2);
+        pastaWithPoppySeed.setImageURL("/recipe_img/2.png");
         recipes.add(pastaWithPoppySeed);
 
         Recipe stoneSoup = crateStoneSoup();
         stoneSoup.setId(3);
+        stoneSoup.setImageURL("/recipe_img/3.jpg");
         recipes.add(stoneSoup);
 
         return recipes;
