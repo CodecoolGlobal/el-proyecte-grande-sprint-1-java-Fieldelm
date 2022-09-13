@@ -4,11 +4,10 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
+import java.math.BigDecimal;
 import java.util.List;
+import java.util.UUID;
 
 @Entity
 @Getter
@@ -22,6 +21,10 @@ public class Recipe {
 
     private String name;
 
+    @OneToOne
+    //@JoinColumn(name = "creator_id")
+    private User creator;
+
     @OneToMany
     private List<Instruction> instructions ;
 
@@ -30,11 +33,20 @@ public class Recipe {
 
     private RecipeCategory category;
 
-    private double rating;
+    private int likes;
 
     private int servings;
 
     private String imageURL;
+
+    private String videoURL;
+
+    private BigDecimal price;
+
+    private boolean isFree;
+
+    @GeneratedValue
+    private UUID publicKey;
 
 
     public boolean containIngredient(String ingredientName){
@@ -48,7 +60,7 @@ public class Recipe {
                 ", name='" + name + '\'' +
                 "description='" + instructions + '\'' +
                 ", category=" + category +
-                ", rating=" + rating +
+                ", rating=" + likes +
                 '}';
     }
 }

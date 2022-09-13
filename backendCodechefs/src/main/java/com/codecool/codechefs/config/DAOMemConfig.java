@@ -1,3 +1,4 @@
+/*
 package com.codecool.codechefs.config;
 
 import com.codecool.codechefs.dao.RecipeDao;
@@ -103,3 +104,4 @@ public class DAOMemConfig {
     }
 }
 
+*/
