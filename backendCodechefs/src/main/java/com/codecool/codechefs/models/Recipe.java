@@ -1,16 +1,31 @@
 package com.codecool.codechefs.models;
 
-import java.util.HashMap;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import java.util.List;
-import java.util.Map;
+
+@Entity
+@Getter
+@Setter
+@NoArgsConstructor
 
 public class Recipe {
-    private int id;
+    @Id
+    @GeneratedValue
+    private Long id;
 
     private String name;
 
-    private List<String> description;
+    @OneToMany
+    private List<Instruction> instructions ;
 
+    @OneToMany
     private List<Ingredient> ingredients;
 
     private RecipeCategory category;
@@ -22,61 +37,8 @@ public class Recipe {
     private String imageURL;
 
 
-    public Recipe(String name, RecipeCategory category, List<Ingredient> ingredients, List<String> description, int servings) {
-        this.name = name;
-        this.ingredients = ingredients;
-        this.description = description;
-        this.category = category;
-        this.servings = servings;
-    }
-
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public List<String> getDescription() {
-        return description;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public RecipeCategory getCategory() {
-        return category;
-    }
-
-    public void setRating(double rating) {
-        this.rating = rating;
-    }
-
-    public List<Ingredient> getIngredients() {
-        return ingredients;
-    }
-
-    public int getServings() {
-        return servings;
-    }
-
-    public double getRating() {
-        return rating;
-    }
-
     public boolean containIngredient(String ingredientName){
         return ingredients.stream().anyMatch(ingredient -> ingredient.getName().equals(ingredientName));
-    }
-
-    public String getImageURL() {
-        return imageURL;
-    }
-
-    public void setImageURL(String imageURL) {
-        this.imageURL = imageURL;
     }
 
     @Override
@@ -84,7 +46,7 @@ public class Recipe {
         return "Recipe{" +
                 ", id=" + id +
                 ", name='" + name + '\'' +
-                "description='" + description + '\'' +
+                "description='" + instructions + '\'' +
                 ", category=" + category +
                 ", rating=" + rating +
                 '}';
