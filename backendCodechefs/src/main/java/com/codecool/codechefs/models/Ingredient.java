@@ -1,40 +1,25 @@
 package com.codecool.codechefs.models;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
+@Getter
+@Setter
+@NoArgsConstructor
 public class Ingredient {
-    String name;
-    String unit;
-    Double value;
 
+    @Id
+    @GeneratedValue
+    private Long id;
 
-    public Ingredient(String ingredient, String unit, Double value) {
-        this.name = ingredient;
-        this.unit = unit;
-        this.value = value;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setIngredient(String ingredient) {
-        this.name = name;
-    }
-
-    public String getUnit() {
-        return unit;
-    }
-
-    public void setUnit(String unit) {
-        this.unit = unit;
-    }
-
-    public Double getValue() {
-        return value;
-    }
-
-    public void setValue(Double value) {
-        this.value = value;
-    }
-
+    private String name;
+    private UnitType unitType;
+    private Double value;
 
 }
