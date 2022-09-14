@@ -1,4 +1,6 @@
 package com.codecool.codechefs.services;
+import com.codecool.codechefs.models.Ingredient;
+import com.codecool.codechefs.models.Instruction;
 import com.codecool.codechefs.models.Recipe;
 import com.codecool.codechefs.models.RecipeCategory;
 import com.codecool.codechefs.repositories.IngredientRepository;
@@ -13,11 +15,11 @@ import java.util.List;
 @Service
 public class RecipeService {
 
-    /*@Autowired
+    @Autowired
     private IngredientRepository ingredientRepository;
 
     @Autowired
-    private InstructionRepository instructionRepository;*/
+    private InstructionRepository instructionRepository;
 
     @Autowired
     private RecipeRepository recipeRepository;
@@ -33,6 +35,16 @@ public class RecipeService {
 
     public List<Recipe> getRecipesByCategory(RecipeCategory category) {
         return recipeRepository.findAllByCategory(category);
+    }
+
+    public void addRecipe(Recipe recipe){
+        for (Ingredient ingredient :recipe.getIngredients()){
+            ingredientRepository.saveAndFlush(ingredient);
+        }
+        for (Instruction instruction:recipe.getInstructions()){
+            instructionRepository.saveAndFlush(instruction);
+        }
+        recipeRepository.saveAndFlush(recipe);
     }
 
 

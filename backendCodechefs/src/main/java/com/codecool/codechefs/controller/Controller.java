@@ -33,6 +33,11 @@ public class Controller {
         return recipeService.getRecipesByCategory(category);
     }
 
+    @PostMapping(value = "add-recipe")
+    public void addRecipe(@RequestBody Recipe recipe){
+        recipeService.addRecipe(recipe);
+    }
+
     /*@GetMapping(value = "filter-recipe-by-ingredients")
     public List<Recipe> getRecipesByIngredients(@RequestBody List<String> ingredients){
         return recipeService.getRecipesByIngredients(ingredients);
