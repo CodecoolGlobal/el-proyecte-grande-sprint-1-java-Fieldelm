@@ -12,7 +12,6 @@ import javax.persistence.Id;
 @Getter
 @Setter
 @NoArgsConstructor
-
 public class Ingredient {
 
     @Id
