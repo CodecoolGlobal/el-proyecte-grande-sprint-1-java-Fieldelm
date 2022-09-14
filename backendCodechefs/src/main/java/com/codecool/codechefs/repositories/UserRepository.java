@@ -1,7 +1,9 @@
 package com.codecool.codechefs.repositories;
 
-import com.codecool.codechefs.models.User;
+import com.codecool.codechefs.models.DefaultUser;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-public interface UserRepository extends JpaRepository<User, Long> {
+@Repository
+public interface UserRepository extends JpaRepository<DefaultUser, Long> {
 }

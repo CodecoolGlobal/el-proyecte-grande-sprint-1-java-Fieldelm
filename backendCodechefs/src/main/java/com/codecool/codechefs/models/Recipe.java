@@ -23,7 +23,7 @@ public class Recipe {
 
     @OneToOne
     //@JoinColumn(name = "creator_id")
-    private User creator;
+    private DefaultUser creator;
 
     @OneToMany
     private List<Instruction> instructions ;

@@ -24,7 +24,7 @@ public class Controller {
     }
 
     @GetMapping(value = "get-one-recipe/{id}")
-    public Recipe getOneRecipe(@PathVariable int id){
+    public Recipe getOneRecipe(@PathVariable Long id){
         return recipeService.getOne(id);
     }
 
@@ -33,7 +33,7 @@ public class Controller {
         return recipeService.getRecipesByCategory(category);
     }
 
-    @GetMapping(value = "filter-recipe-by-ingredients")
+    /*@GetMapping(value = "filter-recipe-by-ingredients")
     public List<Recipe> getRecipesByIngredients(@RequestBody List<String> ingredients){
         return recipeService.getRecipesByIngredients(ingredients);
     }
@@ -41,6 +41,6 @@ public class Controller {
     @GetMapping(value = "search-recipe-ba-name")
     public List<Recipe> searchRecipesByName(@RequestParam(name="name") String searchInput){
         return recipeService.searchRecipesByName(searchInput);
-    }
+    }*/
 
 }
