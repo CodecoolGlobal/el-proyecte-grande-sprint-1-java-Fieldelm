@@ -10,6 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 
 @Service
@@ -47,8 +49,10 @@ public class RecipeService {
         recipeRepository.saveAndFlush(recipe);
     }
 
-    public List<Ingredient> getAllIngredients(){
-        return ingredientRepository.findAll();
+    public Set<String> getAllIngredients(){
+        return ingredientRepository.findAll().stream().
+                map(ingredient -> ingredient.getName()).
+                collect(Collectors.toSet());
     }
 
 

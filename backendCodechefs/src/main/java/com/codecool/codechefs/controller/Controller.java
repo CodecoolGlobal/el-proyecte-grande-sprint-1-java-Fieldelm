@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 @RestController
 @RequestMapping("/")
@@ -41,7 +42,7 @@ public class Controller {
     }
 
     @GetMapping(value = "get-all-ingredients-name")
-    public List<Ingredient> getAllIngredient(){
+    public Set<String> getAllIngredient(){
         return recipeService.getAllIngredients();
     }
     /*@GetMapping(value = "filter-recipe-by-ingredients")
