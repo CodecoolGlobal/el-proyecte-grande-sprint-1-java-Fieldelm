@@ -4,5 +4,9 @@ public enum UnitType {
     DKG,
     DL,
     TB,
+    PIECE,
+    G,
+    KG,
+    SLICE
 
 }

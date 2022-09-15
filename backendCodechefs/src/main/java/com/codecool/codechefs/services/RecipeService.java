@@ -9,7 +9,9 @@ import com.codecool.codechefs.repositories.RecipeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 
 @Service
@@ -46,6 +48,21 @@ public class RecipeService {
         }
         recipeRepository.saveAndFlush(recipe);
     }
+
+    /*public List <Recipe> getRecipesByIngredientName(Ingredient ingredient){
+       List <Ingredient> ingredientList = ingredientRepository.getIngredientByName(ingredient.getName());
+        *//*
+        List<Recipe> recipes = new ArrayList<>();
+        for(Ingredient ingredient: ingredientList){
+            recipes.add(recipeRepository.getByIngredientsContaining(ingredient));
+        }
+        return recipes;*//*
+        return recipeRepository.getByIngredientsContaining(ingredientList);
+
+    }*/
+    /*public List<Recipe> getRecipesByIngredientName(String first, String second){
+        return recipeRepository.findByIngredientNames(first).stream().filter(recipe -> recipe.containIngredient(second)).collect(Collectors.toList());
+    }*/
 
 
 }

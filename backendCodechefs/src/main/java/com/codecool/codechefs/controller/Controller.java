@@ -1,5 +1,6 @@
 package com.codecool.codechefs.controller;
 
+import com.codecool.codechefs.models.Ingredient;
 import com.codecool.codechefs.models.Recipe;
 import com.codecool.codechefs.models.RecipeCategory;
 import com.codecool.codechefs.services.RecipeService;
@@ -38,11 +39,12 @@ public class Controller {
         recipeService.addRecipe(recipe);
     }
 
-    /*@GetMapping(value = "filter-recipe-by-ingredients")
-    public List<Recipe> getRecipesByIngredients(@RequestBody List<String> ingredients){
-        return recipeService.getRecipesByIngredients(ingredients);
+    @GetMapping(value = "filter-recipe-by-ingredients")
+    public List<Recipe> getRecipesByIngredientName(@RequestBody Ingredient ingredient){
+        return recipeService.getRecipesByIngredientName(ingredient);
     }
 
+    /*
     @GetMapping(value = "search-recipe-ba-name")
     public List<Recipe> searchRecipesByName(@RequestParam(name="name") String searchInput){
         return recipeService.searchRecipesByName(searchInput);
