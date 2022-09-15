@@ -46,23 +46,34 @@ public class RecipeService {
         for (Instruction instruction:recipe.getInstructions()){
             instructionRepository.saveAndFlush(instruction);
         }
+        recipe.setName(recipe.getName().toLowerCase());
         recipeRepository.saveAndFlush(recipe);
+
+
     }
 
-    /*public List <Recipe> getRecipesByIngredientName(Ingredient ingredient){
-       List <Ingredient> ingredientList = ingredientRepository.getIngredientByName(ingredient.getName());
-        *//*
-        List<Recipe> recipes = new ArrayList<>();
-        for(Ingredient ingredient: ingredientList){
+    public List <Ingredient> getIngredientsByIngredientName(Ingredient ingredient){
+           return    ingredientRepository.getIngredientByName(ingredient.getName());
+
+    }
+
+    public List<Recipe> getRecipesByIngredientName(String name){
+        List<Ingredient> ingredients = ingredientRepository.getIngredientByName(name);
+        List<Recipe>recipes = new ArrayList<>();
+        for(Ingredient ingredient: ingredients){
             recipes.add(recipeRepository.getByIngredientsContaining(ingredient));
         }
-        return recipes;*//*
-        return recipeRepository.getByIngredientsContaining(ingredientList);
+        return recipes;
+    }
 
-    }*/
-    /*public List<Recipe> getRecipesByIngredientName(String first, String second){
-        return recipeRepository.findByIngredientNames(first).stream().filter(recipe -> recipe.containIngredient(second)).collect(Collectors.toList());
-    }*/
+    public String addImageURLToRecipeById(Long id, String URL){
+        Recipe recipe = recipeRepository.findById(id).get();
+        if(recipe != null){
+            recipe.setImageURL(URL);
+            return "image set";
+        }
+        return String.format("recipe with id %s not found", id.toString() );
 
+    }
 
 }

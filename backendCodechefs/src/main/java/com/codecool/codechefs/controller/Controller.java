@@ -41,8 +41,14 @@ public class Controller {
 
     @GetMapping(value = "filter-recipe-by-ingredients")
     public List<Recipe> getRecipesByIngredientName(@RequestBody Ingredient ingredient){
-        return recipeService.getRecipesByIngredientName(ingredient);
+        return recipeService.getRecipesByIngredientName(ingredient.getName().toLowerCase());
     }
+
+    @PutMapping("add-image/{recipe-id}")
+    public String addImageToRecipeById(@RequestBody Recipe recipe, @PathVariable("recipe-id") Long id){
+        return recipeService.addImageURLToRecipeById(id, recipe.getImageURL());
+    }
+
 
     /*
     @GetMapping(value = "search-recipe-ba-name")
