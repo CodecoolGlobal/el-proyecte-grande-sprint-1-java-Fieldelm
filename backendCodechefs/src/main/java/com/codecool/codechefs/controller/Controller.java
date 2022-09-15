@@ -1,8 +1,10 @@
 package com.codecool.codechefs.controller;
 
+import com.codecool.codechefs.models.Ingredient;
 import com.codecool.codechefs.models.Recipe;
 import com.codecool.codechefs.models.RecipeCategory;
 import com.codecool.codechefs.services.RecipeService;
+import org.hibernate.id.IncrementGenerator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -38,6 +40,10 @@ public class Controller {
         recipeService.addRecipe(recipe);
     }
 
+    @GetMapping(value = "get-all-ingredients-name")
+    public List<Ingredient> getAllIngredient(){
+        return recipeService.getAllIngredients();
+    }
     /*@GetMapping(value = "filter-recipe-by-ingredients")
     public List<Recipe> getRecipesByIngredients(@RequestBody List<String> ingredients){
         return recipeService.getRecipesByIngredients(ingredients);
