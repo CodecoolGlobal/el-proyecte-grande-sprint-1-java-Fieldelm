@@ -13,8 +13,6 @@ public interface RecipeRepository extends JpaRepository<Recipe, Long> {
 
     List<Recipe> findAllByCategory(RecipeCategory recipeCategory);
 
-    @Query("SELECT r from Recipe r join r.ingredients ri where ri.name = ?1")
-    List<Recipe> findByIngredientNames(String ingredientName);
 
     Recipe getByIngredientsContaining(Ingredient ingredient);
 

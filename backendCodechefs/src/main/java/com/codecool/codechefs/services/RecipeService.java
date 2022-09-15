@@ -52,11 +52,6 @@ public class RecipeService {
 
     }
 
-    public List <Ingredient> getIngredientsByIngredientName(Ingredient ingredient){
-           return    ingredientRepository.getIngredientByName(ingredient.getName());
-
-    }
-
     public List<Recipe> getRecipesByIngredientName(String name){
         List<Ingredient> ingredients = ingredientRepository.getIngredientByName(name);
         List<Recipe>recipes = new ArrayList<>();
@@ -66,14 +61,5 @@ public class RecipeService {
         return recipes;
     }
 
-    public String addImageURLToRecipeById(Long id, String URL){
-        Recipe recipe = recipeRepository.findById(id).get();
-        if(recipe != null){
-            recipe.setImageURL(URL);
-            return "image set";
-        }
-        return String.format("recipe with id %s not found", id.toString() );
-
-    }
 
 }
