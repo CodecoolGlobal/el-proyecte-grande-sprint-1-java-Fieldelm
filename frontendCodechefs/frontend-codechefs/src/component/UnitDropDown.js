@@ -1,5 +1,5 @@
 import {useState} from "react";
-import {useEffect} from "@types/react";
+import {useEffect} from "react";
 import {getApi} from "../util/fetchAPI";
 import UnitDropDownItem from "./UnitDropDownItem";
 
