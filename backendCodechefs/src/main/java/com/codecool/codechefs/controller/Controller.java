@@ -45,6 +45,12 @@ public class Controller {
     public Set<String> getAllIngredient(){
         return recipeService.getAllIngredients();
     }
+
+    @GetMapping(value = "get-all-units-name")
+    public List<String> getAllUnitType(){
+        return recipeService.getAllUnit();
+    }
+
     /*@GetMapping(value = "filter-recipe-by-ingredients")
     public List<Recipe> getRecipesByIngredients(@RequestBody List<String> ingredients){
         return recipeService.getRecipesByIngredients(ingredients);
