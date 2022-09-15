@@ -1,6 +1,6 @@
 import Header from "./Header";
-import IngredientDropItem from "./IngredientDropItem";
 import IngredientsDropDown from "./IngredientsDropDown";
+import UnitDropDown from "./UnitDropDown";
 
 const AddRecipe = () => {
     return (
@@ -14,7 +14,7 @@ const AddRecipe = () => {
 
                 <IngredientsDropDown/>
 
-
+                <UnitDropDown/>
 
                 <button type="submit" className="btn">Login</button>
             </form>
