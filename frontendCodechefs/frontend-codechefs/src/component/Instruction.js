@@ -8,8 +8,8 @@ const Instruction = () => {
     const inputRef = useRef(null)
 
     function clickHandle(){
-         const newInstruction = {...instructions}
-        newInstruction.push(inputRef.current.value)
+         const newInstruction = [...instructions]
+         newInstruction.push(inputRef.current.value)
          setInstruction(newInstruction)
     }
 
