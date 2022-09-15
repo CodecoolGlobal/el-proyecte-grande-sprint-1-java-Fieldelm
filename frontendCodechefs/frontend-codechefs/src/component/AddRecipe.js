@@ -16,7 +16,7 @@ const AddRecipe = () => {
 
                 <UnitDropDown/>
 
-                <button type="submit" className="btn">Login</button>
+                <button type="submit" className="btn">Add your recipe</button>
             </form>
         </div>
 )
