@@ -47,5 +47,9 @@ public class RecipeService {
         recipeRepository.saveAndFlush(recipe);
     }
 
+    public List<Ingredient> getAllIngredients(){
+        return ingredientRepository.findAll();
+    }
+
 
 }

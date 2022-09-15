@@ -1,27 +1,28 @@
 import {useState} from "react";
-import {useEffect} from "@types/react";
+import {useEffect} from "react";
 import {getApi} from "../util/fetchAPI";
 import IngredientDropItem from "./IngredientDropItem";
 
 const IngredientsDropDown = () =>{
+    console.log("start")
+    const [ingredients, setIngredients] = useState([]);
 
-    const [ingredients, setIngredients] = useState(["kacsa", "kutya"]);
-
-    /*useEffect(() => {
+    useEffect(() => {
+        console.log("useefect")
         getApi(`/get-all-ingredients-name`)
             .then(_res => setIngredients(_res))
-    }, []);*/
+    }, []);
 
-
+    console.log("kaki")
+    console.log(ingredients)
     const ingredientsList = <IngredientDropItem list={ingredients}></IngredientDropItem>
 
     return(
         <>
             <label htmlFor="ingredients"></label>
-            <input list="ingredients"></input>
-            <datalist>
+            <select>
                 {ingredientsList}
-            </datalist>
+            </select>
         </>
     )
 }
