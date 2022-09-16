@@ -1,13 +1,16 @@
 package com.codecool.codechefs.controller;
 
+import com.codecool.codechefs.models.Ingredient;
 import com.codecool.codechefs.models.Recipe;
 import com.codecool.codechefs.models.RecipeCategory;
 import com.codecool.codechefs.services.RecipeService;
+import org.hibernate.id.IncrementGenerator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 @RestController
 @RequestMapping("/")
@@ -36,6 +39,16 @@ public class Controller {
     @PostMapping(value = "add-recipe")
     public void addRecipe(@RequestBody Recipe recipe){
         recipeService.addRecipe(recipe);
+    }
+
+    @GetMapping(value = "get-all-ingredients-name")
+    public Set<String> getAllIngredient(){
+        return recipeService.getAllIngredients();
+    }
+
+    @GetMapping(value = "get-all-units-name")
+    public List<String> getAllUnitType(){
+        return recipeService.getAllUnit();
     }
 
     /*@GetMapping(value = "filter-recipe-by-ingredients")

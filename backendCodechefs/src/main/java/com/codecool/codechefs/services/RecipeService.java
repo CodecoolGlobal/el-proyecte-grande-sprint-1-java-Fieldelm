@@ -1,15 +1,15 @@
 package com.codecool.codechefs.services;
-import com.codecool.codechefs.models.Ingredient;
-import com.codecool.codechefs.models.Instruction;
-import com.codecool.codechefs.models.Recipe;
-import com.codecool.codechefs.models.RecipeCategory;
+import com.codecool.codechefs.models.*;
 import com.codecool.codechefs.repositories.IngredientRepository;
 import com.codecool.codechefs.repositories.InstructionRepository;
 import com.codecool.codechefs.repositories.RecipeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Arrays;
 import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 
 @Service
@@ -45,6 +45,17 @@ public class RecipeService {
             instructionRepository.saveAndFlush(instruction);
         }
         recipeRepository.saveAndFlush(recipe);
+    }
+
+    public Set<String> getAllIngredients(){
+        return ingredientRepository.findAll().stream().
+                map(ingredient -> ingredient.getName()).
+                collect(Collectors.toSet());
+    }
+
+    public List<String> getAllUnit() {
+        return Arrays.stream(UnitType.values()).map(Enum::name).
+                collect(Collectors.toList());
     }
 
 

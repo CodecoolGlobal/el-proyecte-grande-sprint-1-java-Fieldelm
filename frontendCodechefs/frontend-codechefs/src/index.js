@@ -4,6 +4,7 @@ import App from './component/App';
 import RecipePage from "./component/RecipePage";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import FetchRecipes from "./component/FetchRecipes";
+import AddRecipe from "./component/AddRecipe";
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -13,6 +14,7 @@ root.render(
           <Route path="/" element={<App />}/>
           <Route path="all-recipes/recipeCard/:recipeId" element={<RecipePage />} />
           <Route path="all-recipes" element={<FetchRecipes />}/>
+          <Route path="add-recipe" element={<AddRecipe/>}/>
       </Routes>
   </BrowserRouter>
 );
