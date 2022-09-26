@@ -11,7 +11,7 @@ public class UserService {
     @Autowired
     private UserRepository userRepository;
 
-    private void saveUser(DefaultUser defaultUser){
+    public void saveUser(DefaultUser defaultUser){
         userRepository.saveAndFlush(defaultUser);
     }
 }

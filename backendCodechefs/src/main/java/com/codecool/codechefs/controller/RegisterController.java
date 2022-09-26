@@ -6,12 +6,13 @@ import com.codecool.codechefs.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class RegisterController {
 
-    private UserService userService;
+    private final UserService userService;
 
     @Autowired
     public RegisterController(UserService userService) {
@@ -20,7 +21,8 @@ public class RegisterController {
 
     @PostMapping(value = "/register")
     public void registerUser(@RequestBody DefaultUser defaultUser){
-
+        System.out.println("hali");
+        userService.saveUser(defaultUser);
     }
 
 }

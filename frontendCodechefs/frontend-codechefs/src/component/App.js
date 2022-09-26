@@ -2,6 +2,7 @@ import '../stylesheets/Video.css';
 import '../stylesheets/Navbar.css';
 import '../stylesheets/Recipe.css';
 import '../stylesheets/RecipePage.css';
+import '../stylesheets/Register.css';
 import Header from "./Header";
 import Content from "./Content";
 
