@@ -28,11 +28,6 @@ public class DefaultUser {
 
     private Role role ;
 
-
-
-
-
-
     @GeneratedValue
     private UUID publicKey;
 
