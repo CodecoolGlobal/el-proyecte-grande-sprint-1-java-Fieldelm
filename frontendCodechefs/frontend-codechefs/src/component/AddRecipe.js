@@ -7,7 +7,7 @@ const AddRecipe = () => {
     return (
         <div>
             <Header/>
-            <form action="/action_page.php" className="container">
+            <form action="" className="container">
                 <h1>Add your recipe</h1>
 
                 <label htmlFor="name"><b>Name</b></label>

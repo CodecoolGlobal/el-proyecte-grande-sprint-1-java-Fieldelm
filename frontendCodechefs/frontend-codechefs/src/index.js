@@ -5,6 +5,7 @@ import RecipePage from "./component/RecipePage";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import FetchRecipes from "./component/FetchRecipes";
 import AddRecipe from "./component/AddRecipe";
+import RegisterPage from "./component/RegisterPage";
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -15,6 +16,7 @@ root.render(
           <Route path="all-recipes/recipeCard/:recipeId" element={<RecipePage />} />
           <Route path="all-recipes" element={<FetchRecipes />}/>
           <Route path="add-recipe" element={<AddRecipe/>}/>
+          <Route path="register" element={<RegisterPage/>}/>
       </Routes>
   </BrowserRouter>
 );
