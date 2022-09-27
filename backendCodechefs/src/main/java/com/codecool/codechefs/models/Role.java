@@ -1,7 +1,11 @@
 package com.codecool.codechefs.models;
 
-public enum Role {
+import org.springframework.security.core.GrantedAuthority;
+
+public enum Role  {
     ADMIN,
     CHEF,
-    CUSTOMER
+    CUSTOMER;
+
+
 }
