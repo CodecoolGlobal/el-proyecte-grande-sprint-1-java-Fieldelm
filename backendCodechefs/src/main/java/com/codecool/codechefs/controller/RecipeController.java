@@ -1,20 +1,17 @@
 package com.codecool.codechefs.controller;
 
-import com.codecool.codechefs.models.Ingredient;
 import com.codecool.codechefs.models.Recipe;
 import com.codecool.codechefs.models.RecipeCategory;
 import com.codecool.codechefs.services.RecipeService;
-import org.hibernate.id.IncrementGenerator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
 @RestController
 @RequestMapping("/")
-public class Controller {
+public class RecipeController {
 
     @Autowired
     private RecipeService recipeService;
