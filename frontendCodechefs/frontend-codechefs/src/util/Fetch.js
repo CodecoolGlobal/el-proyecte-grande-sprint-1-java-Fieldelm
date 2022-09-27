@@ -4,7 +4,7 @@ export async function getApi(url){
 }
 
 export async function postFetch(url, payLoad){
-    const rawResponse = await fetch('https://httpbin.org/post', {
+    const rawResponse = await fetch(url, {
         method: 'POST',
         headers: {
             'Accept': 'application/json',
