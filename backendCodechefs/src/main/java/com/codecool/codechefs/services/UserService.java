@@ -14,4 +14,8 @@ public class UserService {
     public void saveUser(DefaultUser defaultUser){
         userRepository.saveAndFlush(defaultUser);
     }
+
+    public Boolean emailExists(String email){
+        return userRepository.existsByEmail(email);
+    }
 }
