@@ -30,7 +30,7 @@ public class JwtUsernameAndPasswordAuthenticationFilter extends UsernamePassword
 
     private AuthenticationManager authenticationManager;
 
-    private Key secretKey = Keys.hmacShaKeyFor("vfoprejpoi".getBytes(StandardCharsets.UTF_8));
+    private Key secretKey = Keys.hmacShaKeyFor("vfoprejpoiiufhiqhfuiwqhvfuiqprhgiu34hgiu43hg".getBytes(StandardCharsets.UTF_8));
 
     public JwtUsernameAndPasswordAuthenticationFilter(AuthenticationManager authenticationManager1) {
         this.authenticationManager = authenticationManager1;

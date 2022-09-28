@@ -19,8 +19,13 @@ import java.util.Set;
 @Service
 public class UserService implements UserDetailsService {
 
-    @Autowired
+
     private UserRepository userRepository;
+
+    @Autowired
+    public UserService(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
 
     public void saveUser(DefaultUser defaultUser){
         userRepository.saveAndFlush(defaultUser);
