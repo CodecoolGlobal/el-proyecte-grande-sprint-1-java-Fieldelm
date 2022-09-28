@@ -31,6 +31,10 @@ public class UserService implements UserDetailsService {
         userRepository.saveAndFlush(defaultUser);
     }
 
+    public Boolean emailAdressNotExists(String email){
+        return userRepository.existsByEmail(email);
+    }
+
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         DefaultUser user = userRepository.findDefaultUserByName(username);
