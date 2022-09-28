@@ -1,6 +1,9 @@
 package com.codecool.codechefs.security;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -12,10 +15,16 @@ import javax.servlet.Filter;
 @EnableWebSecurity
 public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
 
+    private DaoAuthenticationProvider daoAuthenticationProvider;
+
+    @Autowired
+    public ApplicationSecurityConfig(DaoAuthenticationProvider daoAuthenticationProvider) {
+        this.daoAuthenticationProvider = daoAuthenticationProvider;
+    }
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-
+        auth.authenticationProvider(daoAuthenticationProvider);
     }
 
     @Override
@@ -23,13 +32,13 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/","/register", "/video/**").permitAll()
+                /*.antMatchers("/","/register", "/video/**").permitAll()*/
                 .anyRequest()
                 .authenticated();
 
         http
                 .addFilter(new JwtUsernameAndPasswordAuthenticationFilter(authenticationManager()));
 
-
     }
+
 }

@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class LoginController {
 
-    @GetMapping(value = "/login")
-    public void login(){
-
+    @GetMapping(value = "/login_user")
+    public String login() {
+        return "ok";
     }
 }
