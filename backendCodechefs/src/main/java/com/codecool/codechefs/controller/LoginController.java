@@ -9,6 +9,6 @@ public class LoginController {
 
     @PostMapping(value = "/login_user")
     public String login() {
-        return "ok";
+        return "ok ";
     }
 }
