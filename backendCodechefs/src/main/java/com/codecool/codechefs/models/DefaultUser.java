@@ -13,6 +13,11 @@ import java.util.UUID;
 @Setter
 @NoArgsConstructor
 public class DefaultUser {
+
+    public DefaultUser(String name) {
+        this.name = name;
+    }
+
     @Id
     @GeneratedValue
     private Long id;
