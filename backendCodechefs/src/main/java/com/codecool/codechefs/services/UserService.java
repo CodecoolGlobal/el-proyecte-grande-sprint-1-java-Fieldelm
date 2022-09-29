@@ -42,4 +42,8 @@ public class UserService implements UserDetailsService {
         roles.add(new SimpleGrantedAuthority(user.getRole().toString()));
         return new User(user.getName(), user.getPassword(), roles);
     }
+
+    public Boolean emailExists(String email){
+        return userRepository.existsByEmail(email);
+    }
 }
