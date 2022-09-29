@@ -8,6 +8,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
+
 import javax.servlet.Filter;
 
 @Configuration
@@ -31,7 +32,7 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/","/register", "/video/**").permitAll()
+                .antMatchers("/","/register", "/video/**", "/login").permitAll()
                 .anyRequest()
                 .authenticated();
 

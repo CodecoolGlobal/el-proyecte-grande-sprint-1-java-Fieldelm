@@ -10,7 +10,7 @@ const RegisterPage = () => {
 
     const [email, setEmail] = useState([])
 
-    const [role, setRole] = useState([])
+    const [role, setRole] = useState("USER")
 
     const handleNameChange = (event) => {
         setName(event.target.value);
@@ -25,6 +25,7 @@ const RegisterPage = () => {
     }
 
     const handleRoleChange = (event) =>  {
+        console.log(event.target.value)
         setRole(event.target.value);
     }
 
@@ -59,8 +60,8 @@ const RegisterPage = () => {
                             <input type="password" name="password" placeholder="Password" onChange={handlePasswordChange}/>
 
                             <select onChange={handleRoleChange}>
-                                <option>CHEF</option>
-                                <option>USER</option>
+                                <option value={"CHEF"}>CHEF</option>
+                                <option value={"USER"}>USER</option>
                             </select>
 
 
