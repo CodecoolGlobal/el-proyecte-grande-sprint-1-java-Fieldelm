@@ -12,4 +12,6 @@ export async function postFetch(url, payLoad){
         },
         body: JSON.stringify(payLoad)
     });
+    return rawResponse;
 }
+
