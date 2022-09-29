@@ -2,6 +2,7 @@ package com.codecool.codechefs.controller;
 
 
 import com.codecool.codechefs.models.DefaultUser;
+import com.codecool.codechefs.security.PasswordConfig;
 import com.codecool.codechefs.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
