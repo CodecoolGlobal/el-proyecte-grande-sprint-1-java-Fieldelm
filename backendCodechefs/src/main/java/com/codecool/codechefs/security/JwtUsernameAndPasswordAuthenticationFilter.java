@@ -1,6 +1,7 @@
 package com.codecool.codechefs.security;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.security.Keys;
 import lombok.ConfigurationKeys;
@@ -32,13 +33,14 @@ public class JwtUsernameAndPasswordAuthenticationFilter extends UsernamePassword
 
     private Key secretKey = Keys.hmacShaKeyFor("vfoprejpoiiufhiqhfuiwqhvfuiqprhgiu34hgiu43hg".getBytes(StandardCharsets.UTF_8));
 
+    @Autowired
     public JwtUsernameAndPasswordAuthenticationFilter(AuthenticationManager authenticationManager1) {
         this.authenticationManager = authenticationManager1;
     }
 
     @Override
     public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException {
-        try{
+        try {
 
             UsernameAndPasswordAuthenticationRequest usernameAndPasswordAuthenticationRequest = new ObjectMapper()
                     .readValue(request.getInputStream(), UsernameAndPasswordAuthenticationRequest.class);
@@ -48,8 +50,7 @@ public class JwtUsernameAndPasswordAuthenticationFilter extends UsernamePassword
                     usernameAndPasswordAuthenticationRequest.getPassword());
 
             return authenticationManager.authenticate(authentication);
-        }
-         catch (IOException e) {
+        } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
@@ -66,8 +67,8 @@ public class JwtUsernameAndPasswordAuthenticationFilter extends UsernamePassword
                 .compact();
 
         response.addHeader(HttpHeaders.AUTHORIZATION, "Bearer " + token);
-
-
-
     }
+
+
 }
+

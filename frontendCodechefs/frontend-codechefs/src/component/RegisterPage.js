@@ -10,6 +10,8 @@ const RegisterPage = () => {
 
     const [email, setEmail] = useState([])
 
+    const [role, setRole] = useState([])
+
     const handleNameChange = (event) => {
         setName(event.target.value);
     }
@@ -22,9 +24,13 @@ const RegisterPage = () => {
         setEmail(event.target.value);
     }
 
+    const handleRoleChange = (event) =>  {
+        setRole(event.target.value);
+    }
+
     const register = (e) => {
         e.preventDefault();
-        postFetch(`/register`, {name, password, email}).then()
+        postFetch(`/register`, {name, password, email, role}).then()
 
     }
 
@@ -52,7 +58,7 @@ const RegisterPage = () => {
 
                             <input type="password" name="password" placeholder="Password" onChange={handlePasswordChange}/>
 
-                            <select>
+                            <select onChange={handleRoleChange}>
                                 <option>CHEF</option>
                                 <option>USER</option>
                             </select>
