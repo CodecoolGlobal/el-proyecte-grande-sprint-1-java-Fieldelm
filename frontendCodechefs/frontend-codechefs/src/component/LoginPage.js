@@ -6,24 +6,24 @@ const LoginPage = () => {
 
     const [username, setUsername] = useState();
 
-    const [passwordLogin, setPasswordLogin] = useState();
+    const [password, setPassword] = useState();
 
     const handelUserNameChange = (event) =>{
         setUsername(event.target.value)
     }
 
     const handelPasswordLoginChange = (event) =>{
-        setPasswordLogin(event.target.value)
+        setPassword(event.target.value)
     }
 
     const login = (e) => {
         e.preventDefault();
-        postFetch(`/login`, {username, passwordLogin}).then()
+        postFetch(`/login`, {username, password})
 
     }
 
     return (
-        <di>
+        <div>
             <Header/>
 
             <div className="register-container">
@@ -53,7 +53,7 @@ const LoginPage = () => {
 
             </div>
 
-        </di>
+        </div>
     )
 }
 

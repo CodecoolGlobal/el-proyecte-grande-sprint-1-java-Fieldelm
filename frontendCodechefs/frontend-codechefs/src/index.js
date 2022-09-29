@@ -18,7 +18,7 @@ root.render(
           <Route path="all-recipes" element={<FetchRecipes />}/>
           <Route path="add-recipe" element={<AddRecipe/>}/>
           <Route path="register" element={<RegisterPage/>}/>
-          <Route path="login-user" element={<LoginPage/>}/>
+          <Route path="login" element={<LoginPage/>}/>
       </Routes>
   </BrowserRouter>
 );
