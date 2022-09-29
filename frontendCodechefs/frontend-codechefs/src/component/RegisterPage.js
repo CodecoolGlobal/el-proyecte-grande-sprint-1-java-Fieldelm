@@ -1,6 +1,6 @@
 import {useState} from "react";
 import Header from "./Header";
-import { getApi, postFetch } from "../util/Fetch";
+import { getApi, postApi } from "../util/Fetch";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 
@@ -12,7 +12,7 @@ const RegisterPage = () => {
 
     const [email, setEmail] = useState([])
 
-    const [role, setRole] = useState("USER")
+    const [role, setRole] = useState("CHEF")
 
     const [status, setSatus] = useState(0)
 
@@ -58,7 +58,7 @@ const RegisterPage = () => {
 
     const register = (e) => {
         e.preventDefault();
-        postFetch(`/register`, { name, password, email }).then(response => setSatus(response.status));
+        postApi(`/register`, { name, password, email, role }).then(response => setSatus(response.status));
 
 
     }

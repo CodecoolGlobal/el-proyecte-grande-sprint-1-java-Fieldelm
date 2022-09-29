@@ -1,6 +1,6 @@
 import Header from "./Header";
 import {useState} from "react";
-import {postFetch} from "../util/Fetch";
+import {postApi} from "../util/Fetch";
 
 const LoginPage = () => {
 
@@ -18,7 +18,10 @@ const LoginPage = () => {
 
     const login = (e) => {
         e.preventDefault();
-        postFetch(`/login`, {username, passwordLogin}).then()
+        const response = postApi(`/login`, {username, passwordLogin});
+        if(response.ok){
+            localStorage.setItem("Token", response.header("Authorization"));
+        }
 
     }
 
