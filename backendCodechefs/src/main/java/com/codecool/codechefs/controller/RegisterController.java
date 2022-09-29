@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpServletResponse;
+
 @RestController
 public class RegisterController {
 
@@ -26,13 +28,15 @@ public class RegisterController {
 
 
     @PostMapping(value = "/register")
-    public String registerUser(@RequestBody DefaultUser defaultUser) {
+    public void registerUser(@RequestBody DefaultUser defaultUser, HttpServletResponse response) {
         if (!userService.emailExists(defaultUser.getEmail())) {
             defaultUser.setPassword(passwordConfig.passwordEncoder().encode(defaultUser.getPassword()));
             userService.saveUser(defaultUser);
-            return "registered";
+            response.setStatus(HttpServletResponse.SC_ACCEPTED);
+        }else{
+            response.setStatus(HttpServletResponse.SC_CONFLICT);
         }
-        return "email already exists";
+
 
     }
 

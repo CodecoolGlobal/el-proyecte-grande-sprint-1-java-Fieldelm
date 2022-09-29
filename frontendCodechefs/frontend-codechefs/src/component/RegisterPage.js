@@ -1,6 +1,8 @@
 import {useState} from "react";
 import Header from "./Header";
-import {getApi, postFetch} from "../util/Fetch";
+import { getApi, postFetch } from "../util/Fetch";
+import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 const RegisterPage = () => {
 
@@ -11,6 +13,31 @@ const RegisterPage = () => {
     const [email, setEmail] = useState([])
 
     const [role, setRole] = useState("USER")
+
+    const [status, setSatus] = useState(0)
+
+    const navigate = useNavigate();
+
+    const [errorMessage, setErrorMessage] = useState('')
+
+    useEffect(() => {
+        switch (status) {
+            case 0:
+                setErrorMessage('');
+                break;
+            case 202:
+                navigate('/', { replace: false });
+                break;
+            case 409:
+                setErrorMessage('Acount already exists');
+                break;
+            default:
+                setErrorMessage('Unknown ' + status)
+        }
+    }, [status]);
+
+
+
 
     const handleNameChange = (event) => {
         setName(event.target.value);
@@ -31,7 +58,8 @@ const RegisterPage = () => {
 
     const register = (e) => {
         e.preventDefault();
-        postFetch(`/register`, {name, password, email, role}).then()
+        postFetch(`/register`, { name, password, email }).then(response => setSatus(response.status));
+
 
     }
 
@@ -41,6 +69,7 @@ const RegisterPage = () => {
 
                 <div className="register-container">
 
+                {(errorMessage !== '') ? <p>{errorMessage}</p> : <></>}
 
                     <form id="signup" onSubmit={register}>
 
