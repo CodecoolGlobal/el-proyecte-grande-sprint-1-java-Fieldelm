@@ -17,8 +17,7 @@ public class RecipeController {
     private RecipeService recipeService;
 
 
-    @GetMapping(value = "get-all-recipes")
-    @ResponseBody
+    @GetMapping("get-all-recipes")
     public List<Recipe> getAllRecipes(){
         return recipeService.getAll();
     }
@@ -34,8 +33,13 @@ public class RecipeController {
     }
 
     @PostMapping(value = "add-recipe")
-    public void addRecipe(@RequestBody Recipe recipe){
-        recipeService.addRecipe(recipe);
+    public String addRecipe(@RequestBody Recipe recipe){
+        return recipeService.addRecipe(recipe);
+    }
+
+    @DeleteMapping(value = "delete")
+    public String deleteRecipe(@RequestBody Long id){
+        return recipeService.deleteById(id);
     }
 
     @GetMapping(value = "get-all-ingredients-name")

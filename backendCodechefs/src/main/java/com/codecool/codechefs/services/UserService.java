@@ -46,4 +46,11 @@ public class UserService implements UserDetailsService {
     public Boolean emailExists(String email){
         return userRepository.existsByEmail(email);
     }
+
+    public Boolean userNameExists(String username){
+        return userRepository.existsByName(username);
+    }
+    public DefaultUser getUserById(Long id){
+        return userRepository.findById(id).get();
+    }
 }

@@ -1,6 +1,5 @@
 package com.codecool.codechefs.security;
 
-import com.codecool.codechefs.models.Role;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
@@ -33,8 +32,7 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/","/register", "/video/**", "/login", "/get-all-recipes").permitAll()
-               /* .antMatchers("/get-all-recipes").hasRole(Role.CHEF.name())*/
+                .antMatchers("/","/register", "/video/**", "/login", "/get-all-recipes", "/add-recipe", "/delete").permitAll()
                 .anyRequest()
                 .authenticated();
 

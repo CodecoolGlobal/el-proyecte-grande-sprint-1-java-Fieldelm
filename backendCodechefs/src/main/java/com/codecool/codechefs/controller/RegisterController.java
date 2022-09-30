@@ -29,7 +29,7 @@ public class RegisterController {
 
     @PostMapping(value = "/register")
     public void registerUser(@RequestBody DefaultUser defaultUser, HttpServletResponse response) {
-        if (!userService.emailExists(defaultUser.getEmail())) {
+        if (!userService.emailExists(defaultUser.getEmail()) && !userService.userNameExists(defaultUser.getName())) {
             defaultUser.setPassword(passwordConfig.passwordEncoder().encode(defaultUser.getPassword()));
             userService.saveUser(defaultUser);
             response.setStatus(HttpServletResponse.SC_ACCEPTED);
