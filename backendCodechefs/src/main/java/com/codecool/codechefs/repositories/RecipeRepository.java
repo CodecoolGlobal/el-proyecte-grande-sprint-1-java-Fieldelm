@@ -4,11 +4,14 @@ import com.codecool.codechefs.models.Recipe;
 import com.codecool.codechefs.models.RecipeCategory;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
-@Repository
+
+@Component
 public interface RecipeRepository extends JpaRepository<Recipe, Long> {
 
     List<Recipe> findAllByCategory(RecipeCategory recipeCategory);
+
 }
