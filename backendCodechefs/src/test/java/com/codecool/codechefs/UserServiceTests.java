@@ -56,4 +56,9 @@ public class UserServiceTests {
 
 
     }
+
+    @Test
+    public void rolesAreTurnedIntoStringsCorrectly() {
+        assertEquals("ROLE_CHEF", Role.CHEF.toString());
+    }
 }

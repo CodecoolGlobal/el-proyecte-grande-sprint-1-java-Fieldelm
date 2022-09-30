@@ -7,5 +7,9 @@ public enum Role  {
     CHEF,
     CUSTOMER;
 
-
+    // @Override
+    // public String toString() {
+    //     var roleName = super.toString();
+    //     return String.format("ROLE_%s", roleName);
+    // }
 }
