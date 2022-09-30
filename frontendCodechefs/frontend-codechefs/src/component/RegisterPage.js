@@ -4,6 +4,8 @@ import { getApi, postFetch } from "../util/Fetch";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 
+const possibleRoles = ["CHEF", "CUSTOMER", "ADMIN"];
+
 const RegisterPage = () => {
 
     const [name, setName] = useState([])
@@ -59,8 +61,6 @@ const RegisterPage = () => {
     const register = (e) => {
         e.preventDefault();
         postFetch(`/register`, { name, password, email }).then(response => setSatus(response.status));
-
-
     }
 
     return(
@@ -89,8 +89,7 @@ const RegisterPage = () => {
                             <input type="password" name="password" placeholder="Password" onChange={handlePasswordChange}/>
 
                             <select onChange={handleRoleChange}>
-                                <option value={"CHEF"}>CHEF</option>
-                                <option value={"USER"}>USER</option>
+                              {possibleRoles.map(roleName => <option key={roleName} selected={role === roleName} value={roleName}>{roleName}</option>)}
                             </select>
 
 
