@@ -8,6 +8,8 @@ const LoginPage = () => {
 
     const [password, setPassword] = useState();
 
+
+
     const handelUserNameChange = (event) =>{
         setUsername(event.target.value)
     }
@@ -18,7 +20,7 @@ const LoginPage = () => {
 
     const login = (e) => {
         e.preventDefault();
-        postFetch(`/login`, {username, password})
+        postFetch(`/login`, {username, password}).then(response =>localStorage.setItem("token",  JSON.stringify(response.headers.get('Authorization')))).then(console.log(localStorage.getItem("token")))
 
     }
 
