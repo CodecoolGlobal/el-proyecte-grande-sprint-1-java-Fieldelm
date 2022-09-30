@@ -24,6 +24,9 @@ public class RecipeService {
     @Autowired
     private RecipeRepository recipeRepository;
 
+    @Autowired
+    private UserService userService;
+
 
     public List<Recipe> getAll() {
         return recipeRepository.findAll();
@@ -37,14 +40,20 @@ public class RecipeService {
         return recipeRepository.findAllByCategory(category);
     }
 
-    public void addRecipe(Recipe recipe){
-        for (Ingredient ingredient :recipe.getIngredients()){
-            ingredientRepository.saveAndFlush(ingredient);
-        }
-        for (Instruction instruction:recipe.getInstructions()){
-            instructionRepository.saveAndFlush(instruction);
-        }
-        recipeRepository.saveAndFlush(recipe);
+    public String addRecipe(Recipe recipe){
+        DefaultUser creator = userService.getUserById(recipe.getCreator().getId());
+        if(creator!= null){
+            for (Ingredient ingredient :recipe.getIngredients()){
+                ingredientRepository.saveAndFlush(ingredient);
+            }
+            for (Instruction instruction:recipe.getInstructions()){
+                instructionRepository.saveAndFlush(instruction);
+            }
+            recipeRepository.saveAndFlush(recipe);
+            return "ok";
+        }return "failed";
+
+
     }
 
     public Set<String> getAllIngredients(){
@@ -57,6 +66,19 @@ public class RecipeService {
         return Arrays.stream(UnitType.values()).map(Enum::name).
                 collect(Collectors.toList());
     }
+
+    public String deleteById(Long id){
+        Recipe recipe = recipeRepository.findById(id).get();
+        if(recipe!= null){
+            recipe.getIngredients().forEach(ingredient -> ingredientRepository.delete(ingredient));
+            recipe.getInstructions().forEach(instruction -> instructionRepository.delete(instruction));
+            recipeRepository.delete(recipe);
+            return "deleted";
+        }
+        return "not found";
+
+    }
+
 
 
 }

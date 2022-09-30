@@ -3,6 +3,7 @@ package com.codecool.codechefs.models;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
@@ -21,14 +22,19 @@ public class Recipe {
 
     private String name;
 
+    public Recipe(DefaultUser creator) {
+        this.creator = creator;
+    }
+
     @OneToOne
     //@JoinColumn(name = "creator_id")
     private DefaultUser creator;
 
-    @OneToMany
+
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     private List<Instruction> instructions ;
 
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     private List<Ingredient> ingredients;
 
     private RecipeCategory category;
@@ -45,7 +51,8 @@ public class Recipe {
 
     private boolean isFree;
 
-    @GeneratedValue
+
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID publicKey;
 
 

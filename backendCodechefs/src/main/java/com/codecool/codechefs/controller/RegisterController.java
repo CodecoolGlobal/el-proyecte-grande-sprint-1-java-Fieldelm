@@ -26,13 +26,13 @@ public class RegisterController {
 
 
     @PostMapping(value = "/register")
-    public String registerUser(@RequestBody DefaultUser defaultUser) {
-        if (!userService.emailExists(defaultUser.getEmail())) {
+    public void registerUser(@RequestBody DefaultUser defaultUser) {
+        if (!userService.emailExists(defaultUser.getEmail()) && !userService.userNameExists(defaultUser.getName())) {
             defaultUser.setPassword(passwordConfig.passwordEncoder().encode(defaultUser.getPassword()));
             userService.saveUser(defaultUser);
-            return "registered";
+
         }
-        return "email already exists";
+
 
     }
 
