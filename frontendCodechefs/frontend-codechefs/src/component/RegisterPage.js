@@ -12,7 +12,7 @@ const RegisterPage = () => {
 
     const [email, setEmail] = useState([])
 
-    const [role, setRole] = useState("USER")
+    const [role, setRole] = useState("CUSTOMER")
 
     const [status, setSatus] = useState(0)
 
@@ -58,7 +58,7 @@ const RegisterPage = () => {
 
     const register = (e) => {
         e.preventDefault();
-        postFetch(`/register`, { name, password, email }).then(response => setSatus(response.status));
+        postFetch(`/register`, { name, password, email, role }).then(response => setSatus(response.status));
 
 
     }
@@ -89,8 +89,9 @@ const RegisterPage = () => {
                             <input type="password" name="password" placeholder="Password" onChange={handlePasswordChange}/>
 
                             <select onChange={handleRoleChange}>
+                                
+                                <option value={"CUSTOMER"}>CUSTOMER</option>
                                 <option value={"CHEF"}>CHEF</option>
-                                <option value={"USER"}>USER</option>
                             </select>
 
 
