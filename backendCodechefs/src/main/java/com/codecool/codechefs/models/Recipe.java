@@ -37,6 +37,7 @@ public class Recipe {
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     private List<Ingredient> ingredients;
 
+    @Enumerated(EnumType.STRING)
     private RecipeCategory category;
 
     private int likes;
@@ -50,10 +51,6 @@ public class Recipe {
     private BigDecimal price;
 
     private boolean isFree;
-
-
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private UUID publicKey;
 
 
     public boolean containIngredient(String ingredientName){

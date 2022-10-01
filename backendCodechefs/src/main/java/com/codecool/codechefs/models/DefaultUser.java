@@ -34,9 +34,7 @@ public class DefaultUser {
 
     private String password;
 
+    @Enumerated(EnumType.STRING)
     private Role role ;
 
-    @GeneratedValue
-    private UUID publicKey;
-
-}
+ }

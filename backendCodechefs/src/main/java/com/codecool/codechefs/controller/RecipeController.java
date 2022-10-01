@@ -37,7 +37,7 @@ public class RecipeController {
         return recipeService.addRecipe(recipe);
     }
 
-    @DeleteMapping(value = "delete")
+    @DeleteMapping(value = "delete-recipe")
     public String deleteRecipe(@RequestBody Long id){
         return recipeService.deleteById(id);
     }

@@ -17,6 +17,8 @@ public class Ingredient {
     private Long id;
 
     private String name;
+
+    @Enumerated(EnumType.STRING)
     private UnitType unitType;
     private Double value;
 
