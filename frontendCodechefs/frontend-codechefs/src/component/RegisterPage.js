@@ -1,4 +1,4 @@
-import {useState} from "react";
+import { useState } from "react";
 import Header from "./Header";
 import { getApi, postFetch } from "../util/Fetch";
 import { useNavigate } from "react-router-dom";
@@ -47,11 +47,11 @@ const RegisterPage = () => {
         setPassword(event.target.value);
     }
 
-    const handleEmailChange = (event) =>  {
+    const handleEmailChange = (event) => {
         setEmail(event.target.value);
     }
 
-    const handleRoleChange = (event) =>  {
+    const handleRoleChange = (event) => {
         console.log(event.target.value)
         setRole(event.target.value);
     }
@@ -63,51 +63,52 @@ const RegisterPage = () => {
 
     }
 
-    return(
+    return (
         <div>
-            <Header/>
+            <Header />
 
-                <div className="register-container">
-
-                {(errorMessage !== '') ? <p>{errorMessage}</p> : <></>}
-
-                    <form id="signup" onSubmit={register}>
-
-                        <div className="header">
-                            <h3>Sign Up</h3>
-                            <p>You want to fill out this form</p>
-                        </div>
-
-                        <div className="sep"></div>
-
-                        <div className="inputs">
-
-                            <input type="text" name="name" placeholder="name" autoFocus onChange={handleNameChange}/>
-
-                            <input type="email" name="email" placeholder="e-mail" onChange={handleEmailChange}/>
-
-                            <input type="password" name="password" placeholder="Password" onChange={handlePasswordChange}/>
-
-                            <select onChange={handleRoleChange}>
-                                
-                                <option value={"CUSTOMER"}>CUSTOMER</option>
-                                <option value={"CHEF"}>CHEF</option>
-                            </select>
+            <div className="register-container">
 
 
-                            <div className="checkboxy">
-                                <input name="cecky" id="checky" value="1" type="checkbox"/><label className="terms">I accept the
+
+                <form id="signup" onSubmit={register}>
+
+                    <div>{(errorMessage !== '') ? <p>{errorMessage}</p> : <></>}</div>
+                    <div className="header">
+                        <h3>Sign Up</h3>
+                        <p>You want to fill out this form</p>
+                    </div>
+
+                    <div className="sep"></div>
+
+                    <div className="inputs">
+
+                        <input type="text" name="name" placeholder="name" autoFocus onChange={handleNameChange} />
+
+                        <input type="email" name="email" placeholder="e-mail" onChange={handleEmailChange} />
+
+                        <input type="password" name="password" placeholder="Password" onChange={handlePasswordChange} />
+
+                        <select onChange={handleRoleChange}>
+
+                            <option value={"CUSTOMER"}>CUSTOMER</option>
+                            <option value={"CHEF"}>CHEF</option>
+                        </select>
+
+
+                        <div className="checkboxy">
+                            <input name="cecky" id="checky" value="1" type="checkbox" /><label className="terms">I accept the
                                 terms of
                                 use</label>
-                            </div>
-
-                            <input type="submit" value="register"/>
-
                         </div>
 
-                    </form>
+                        <input type="submit" value="register" />
 
-                </div>
+                    </div>
+
+                </form>
+
+            </div>
 
         </div>
 

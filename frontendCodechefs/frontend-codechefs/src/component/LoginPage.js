@@ -1,6 +1,13 @@
 import Header from "./Header";
-import {useState} from "react";
-import {postFetch} from "../util/Fetch";
+import { useState } from "react";
+import { postFetch } from "../util/Fetch";
+import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
+
+//npm i jwt-decode install jwt decode library
+
+import jwtDecode from "jwt-decode";
+
 
 const LoginPage = () => {
 
@@ -8,30 +15,83 @@ const LoginPage = () => {
 
     const [password, setPassword] = useState();
 
+    const [status, setStatus] = useState(0)
 
+    const [errorMessage, setErrorMessage] = useState('')
 
-    const handelUserNameChange = (event) =>{
+  
+
+    const handelUserNameChange = (event) => {
         setUsername(event.target.value)
     }
 
-    const handelPasswordLoginChange = (event) =>{
+    const handelPasswordLoginChange = (event) => {
         setPassword(event.target.value)
     }
 
-    const login = (e) => {
+    const navigate = useNavigate();
+
+
+    useEffect(() => {
+        switch (status) {
+            case 0:
+                setErrorMessage('');
+                break;
+            case 200:
+                break;
+
+            case 403:
+                setErrorMessage('username or password incorrect');
+                break;
+        }
+    }, [status]);
+
+
+    let baererToken = null;
+    let decodedToken = null;
+   
+    const login = async(e) => {
         e.preventDefault();
-        postFetch(`/login`, {username, password}).then(response =>localStorage.setItem("token",  JSON.stringify(response.headers.get('Authorization')))).then(console.log(localStorage.getItem("token")))
+        let response = await postFetch(`/login`, { username, password });
+
+        setStatus(response.status);
+
+        if(response.ok){
+            baererToken = response.headers.get('Authorization');
+            localStorage.setItem("token", JSON.stringify(baererToken));
+            console.log(localStorage.getItem("token"));
+            decodedToken = jwtDecode(baererToken.replace('Baerer ', ''));
+            console.log(`decodedToken: ${decodedToken}`);
+            localStorage.setItem("user", decodedToken.sub);
+            console.log(`User: ${localStorage.getItem("user")}`)
+            navigate('/')
+            
+        }else{
+            
+        }
+
+           /*  .then(response => baererToken = response.headers.get('Authorization'))
+            // .then(response => localStorage.setItem("token", JSON.stringify(baererToken)))
+            .then(console.log(localStorage.getItem("token")))
+            .then(decodedToken = jwtDecode(baererToken.replace('Baerer ', '')))
+            .then(console.log(decodedToken))
+            .then(user = decodedToken.sub)
+            .then(localStorage.setItem("user", user)) */
+
 
     }
 
     return (
         <div>
-            <Header/>
+            <Header />
 
             <div className="register-container">
 
 
                 <form id="signup" onSubmit={login}>
+
+                <div>{(errorMessage !== '') ? <p>{errorMessage}</p> : <></>}</div>
+
 
                     <div className="header">
                         <h3>Login</h3>
@@ -42,12 +102,12 @@ const LoginPage = () => {
 
                     <div className="inputs">
 
-                        <input type="text" name="name" placeholder="name" autoFocus onChange={handelUserNameChange}/>
+                        <input type="text" name="name" placeholder="name" autoFocus onChange={handelUserNameChange} />
 
 
-                        <input type="password" name="password" placeholder="Password" onChange={handelPasswordLoginChange}/>
+                        <input type="password" name="password" placeholder="Password" onChange={handelPasswordLoginChange} />
 
-                        <input type="submit" value="login"/>
+                        <input type="submit" value="login" />
 
                     </div>
 
