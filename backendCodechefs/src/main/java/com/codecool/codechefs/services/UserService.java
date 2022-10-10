@@ -31,6 +31,10 @@ public class UserService implements UserDetailsService {
         userRepository.saveAndFlush(defaultUser);
     }
 
+    public Boolean emailAdressNotExists(String email){
+        return userRepository.existsByEmail(email);
+    }
+
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         DefaultUser user = userRepository.findDefaultUserByName(username);
@@ -41,5 +45,12 @@ public class UserService implements UserDetailsService {
 
     public Boolean emailExists(String email){
         return userRepository.existsByEmail(email);
+    }
+
+    public Boolean userNameExists(String username){
+        return userRepository.existsByName(username);
+    }
+    public DefaultUser getUserById(Long id){
+        return userRepository.findById(id).get();
     }
 }

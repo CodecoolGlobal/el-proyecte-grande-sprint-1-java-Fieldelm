@@ -1,5 +1,10 @@
 export async function getApi(url){
-    let data = await fetch(url);
+    let token = JSON.parse(localStorage.getItem("token"))
+    let data = await fetch(url, {
+        headers :{'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        'Authorization': `${token}`}
+    });
     return await data.json();
 }
 
@@ -12,4 +17,6 @@ export async function postFetch(url, payLoad){
         },
         body: JSON.stringify(payLoad)
     });
+    return rawResponse;
 }
+

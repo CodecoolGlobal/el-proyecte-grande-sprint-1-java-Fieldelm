@@ -4,9 +4,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 @Getter
@@ -19,7 +17,11 @@ public class Ingredient {
     private Long id;
 
     private String name;
+
+    @Enumerated(EnumType.STRING)
     private UnitType unitType;
     private Double value;
+
+
 
 }

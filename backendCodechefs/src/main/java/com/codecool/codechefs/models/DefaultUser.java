@@ -14,8 +14,11 @@ import java.util.UUID;
 @NoArgsConstructor
 public class DefaultUser {
 
-    public DefaultUser(String name) {
+    public DefaultUser(String name, String email, String password, Role role) {
         this.name = name;
+        this.email = email;
+        this.password = password;
+        this.role = role;
     }
 
     @Id
@@ -31,9 +34,7 @@ public class DefaultUser {
 
     private String password;
 
+    @Enumerated(EnumType.STRING)
     private Role role ;
 
-    @GeneratedValue
-    private UUID publicKey;
-
-}
+ }
