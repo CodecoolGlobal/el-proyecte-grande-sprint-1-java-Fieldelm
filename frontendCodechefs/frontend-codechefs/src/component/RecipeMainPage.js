@@ -15,7 +15,7 @@ export const RecipeMainPage = ({recipe}) => {
   const ingredientList = <ul>
     {recipe.ingredients.map((ingredient)=>(
       <li key={ingredient.id}>
-          {(ingredient.value !== 0.0)? ingredient.value : ""}   {ingredient.unitType}   {ingredient.name}
+          {(ingredient.value !== 0.0)? ingredient.value : ""}   {ingredient.unitType.toLowerCase() +" of"}   {ingredient.name}
       </li>
     ))}
   </ul>
@@ -42,6 +42,7 @@ export const RecipeMainPage = ({recipe}) => {
     <h2>Method:</h2>
         {description}
     </div>
+    
 </div>
   )
 }

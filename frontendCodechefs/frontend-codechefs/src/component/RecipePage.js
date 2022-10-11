@@ -14,7 +14,7 @@ const RecipePage = () => {
 
 const getRecipe = async () =>{
     let recipeData = await getApi(`/get-one-recipe/${recipeId}`);
-    console.log(recipeData);
+    //console.log(recipeData);
     setRecipe(recipeData);
     //console.log(recipe);
 
