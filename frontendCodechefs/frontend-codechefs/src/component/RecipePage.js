@@ -10,24 +10,30 @@ const RecipePage = () => {
 
     const {recipeId} = useParams()
     const [recipe, setRecipe] = useState();
-    console.log(recipeId);
+    //console.log(recipeId);
 
+const getRecipe = async () =>{
+    let recipeData = await getApi(`/get-one-recipe/${recipeId}`);
+    console.log(recipeData);
+    setRecipe(recipeData);
+    //console.log(recipe);
 
+}
 
     useEffect(()=>{
-        getApi(`/get-one-recipe/${recipeId}`)
-        .then(_res => setRecipe(_res));
-    }, []);
+      getRecipe();
+    }, [recipeId]);
 
     
 
-    const recipeData = recipe === undefined ? "loading..." : <RecipeMainPage recipe={recipe}></RecipeMainPage>
+    const recipeData = recipe === undefined ? "loading..." : <RecipeMainPage recipe={recipe}/>
 
 
     return(
         <div>
             <Header/>
             {recipeData}
+            
         </div>
     )
 }

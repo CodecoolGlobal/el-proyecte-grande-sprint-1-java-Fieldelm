@@ -1,7 +1,7 @@
 import React from 'react'
 
 export const RecipeMainPage = ({recipe}) => {
-  console.log(recipe.name);
+ // console.log(recipe.name);
   
 /* 
   <ul>
@@ -14,16 +14,16 @@ export const RecipeMainPage = ({recipe}) => {
 
   const ingredientList = <ul>
     {recipe.ingredients.map((ingredient)=>(
-      <li key={ingredient.name}>
-          {(ingredient.value !== 0.0)? ingredient.value : ""}   {ingredient.unit}   {ingredient.name}
+      <li key={ingredient.id}>
+          {(ingredient.value !== 0.0)? ingredient.value : ""}   {ingredient.unitType}   {ingredient.name}
       </li>
     ))}
   </ul>
 
   const description = <ol>
-    {recipe.description.map((line, index)=>(
-      <li key={index}>
-        {line}
+    {recipe.instructions.map((instruction)=>(
+      <li key={instruction.id}>
+        {instruction.text}
       </li>
     ))}
   </ol>
