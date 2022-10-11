@@ -1,4 +1,5 @@
 import React from 'react'
+import {getApi} from "../util/Fetch"
 
 export const RecipeMainPage = ({recipe}) => {
  // console.log(recipe.name);
@@ -27,11 +28,13 @@ export const RecipeMainPage = ({recipe}) => {
       </li>
     ))}
   </ol>
+
+
  
   return (
 <div className="recipePageMain">
     <div className= "recipeFirst-container">
-      <img src ={recipe.imageURL} alt={recipe.name} />
+      <img src ={"/"+recipe.imageURL} alt={recipe.name} />
       <div className="recipeIngredients-container">
       <h1>{recipe.name}</h1>
       <h2>Ingredients:</h2>
