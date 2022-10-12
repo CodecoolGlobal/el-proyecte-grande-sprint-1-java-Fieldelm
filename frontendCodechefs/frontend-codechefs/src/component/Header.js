@@ -9,7 +9,7 @@ const Header = ({isLoggedIn, setIsLoggedIn}) => {
     const userName = localStorage.getItem("user");
 
     
-    const user = userName != null && <p className="user">{userName}</p>
+    //const user = userName != null && <p className="user">{userName}</p>
 
     const handleLogout = () => {
         
@@ -19,7 +19,7 @@ const Header = ({isLoggedIn, setIsLoggedIn}) => {
     }
 
 
-    const loginButton = userName === null ? <Link to="/login">Login</Link> : <a onClick={handleLogout}>Logout</a> 
+    //const loginButton = userName === null ? <Link to="/login">Login</Link> : <a onClick={handleLogout}>Logout</a> 
 
     
     return (
@@ -28,12 +28,9 @@ const Header = ({isLoggedIn, setIsLoggedIn}) => {
                 <Link className="active" to="/">Home</Link>
                 <Link to="/all-recipes">Recipes</Link>
                 <Link to="/add-recipe">Add recipes</Link>
-                <Link to="/register">Register</Link>
-           
-                  
-              {/* <a onClick={handleLogout()} href="/">Logout</a> */}
                 <Link to="/about-us">About us</Link>
-                {user}
+                {!isLoggedIn && <Link to="/register">Register</Link>}
+                {isLoggedIn && (<p className="user">{userName}</p>)}
                 {isLoggedIn ? (<a onClick={handleLogout}>Logout</a>): (<Link to="/login">Login</Link>)}
             </nav>
         </div>
