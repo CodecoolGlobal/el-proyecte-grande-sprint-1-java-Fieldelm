@@ -20,8 +20,8 @@ const Header = () => {
                 <Link to="/add-recipe">Add recipes</Link>
                 <Link to="/register">Register</Link>
                 <Link to="/login">Login</Link>
-                {/* <button onClick={handleLogout}>Logout</button> */}
-              <a onClick={handleLogout()} href="/">Logout</a>
+                  <button onClick={handleLogout}>Logout</button> 
+              {/* <a onClick={handleLogout()} href="/">Logout</a> */}
                 <a href="src/component/Header#about">About us</a>
                 {user}
             </nav>
