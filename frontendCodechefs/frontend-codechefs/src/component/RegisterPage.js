@@ -14,7 +14,7 @@ const RegisterPage = () => {
 
     const [role, setRole] = useState("CUSTOMER")
 
-    const [status, setSatus] = useState(0)
+    const [status, setStatus] = useState(0)
 
     const navigate = useNavigate();
 
@@ -58,7 +58,7 @@ const RegisterPage = () => {
 
     const register = (e) => {
         e.preventDefault();
-        postFetch(`/register`, { name, password, email, role }).then(response => setSatus(response.status));
+        postFetch(`/register`, { name, password, email, role }).then(response => setStatus(response.status));
 
 
     }

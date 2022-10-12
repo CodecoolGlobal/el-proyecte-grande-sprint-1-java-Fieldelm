@@ -1,0 +1,18 @@
+.news-container{
+    background-color: #f0f0f0;
+    display: flex;
+    border-radius: 3px;
+    padding: 30px;
+
+}
+
+.content-container{
+    display: flex;
+    padding: 40px;
+    background-color: #333333;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.294);
+    border-radius: 10px;
+    margin: 10px;
+    width: 300px;text-decoration: none;
+}
+
