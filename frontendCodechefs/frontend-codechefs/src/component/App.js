@@ -4,6 +4,8 @@ import '../stylesheets/Recipe.css';
 import '../stylesheets/RecipePage.css';
 import '../stylesheets/Register.css';
 import '../stylesheets/AddRecipe.css';
+import '../stylesheets/News.css';
+
 import Header from "./Header";
 import Content from "./Content";
 
