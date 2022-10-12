@@ -34,7 +34,7 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers("/","/register", "/video/**", "/login","/get-all-recipes", "/delete-recipe",
                         "/get-one-recipe/**","/filter-recipe-by-category", "/get-all-ingredients-name",
-                        "/get-all-units-name" ).permitAll()
+                        "/get-all-units-name", "/recipe_img/**" ).permitAll()
                 .antMatchers("/add-recipe").hasRole("CHEF")
                 .anyRequest()
                 .authenticated();
