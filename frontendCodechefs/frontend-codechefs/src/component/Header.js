@@ -4,20 +4,11 @@ import { useState } from "react";
 
 const Header = () => {
 
-    const [loggedIn, setLoggedIn] = useState();
+   
 
     const userName = localStorage.getItem("user");
 
-    const handleLoggedIn =()=>{
-        if (localStorage.getItem("user") != null){
-        setLoggedIn(true)
-        }else{
-            setLoggedIn(false)
-        }
-    }
-
-
-
+    
     const user = userName != null ? <p className="user">{userName}</p> : <></>
 
     const handleLogout = () => {
@@ -37,11 +28,12 @@ const Header = () => {
                 <Link to="/all-recipes">Recipes</Link>
                 <Link to="/add-recipe">Add recipes</Link>
                 <Link to="/register">Register</Link>
-               {loginButton}
+           
                   
               {/* <a onClick={handleLogout()} href="/">Logout</a> */}
-                <a href="src/component/Header#about">About us</a>
+                <Link to="/about-us">About us</Link>
                 {user}
+                {loginButton}
             </nav>
         </div>
     )

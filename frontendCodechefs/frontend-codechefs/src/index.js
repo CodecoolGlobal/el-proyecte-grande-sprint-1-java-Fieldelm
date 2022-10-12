@@ -7,6 +7,7 @@ import FetchRecipes from "./component/FetchRecipes";
 import AddRecipe from "./component/AddRecipe";
 import RegisterPage from "./component/RegisterPage";
 import LoginPage from "./component/LoginPage";
+import AboutUs from './component/AboutUs';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -19,6 +20,8 @@ root.render(
           <Route path="add-recipe" element={<AddRecipe/>}/>
           <Route path="register" element={<RegisterPage/>}/>
           <Route path="login" element={<LoginPage/>}/>
+          <Route path="about-us" element={<AboutUs/>}/>
+
       </Routes>
   </BrowserRouter>
 );
