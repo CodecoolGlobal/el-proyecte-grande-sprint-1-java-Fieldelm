@@ -90,10 +90,11 @@ const AddRecipe = () => {
                     <label htmlFor="name"><b>Name</b></label>
                     <input type="text" placeholder="Enter Name" name="name" required onChange={handleRecipeNameChange}></input>
 
-                    <label htmlFor="value"></label>
-                        <input type="number" min="0" max="100" step="0.01" ref={valueRef}/>
-
                     {addedIngredient}
+
+                    <label htmlFor="value"></label>
+                    <input type="number" min="0" max="100" step="0.01" ref={valueRef}/>
+
                     <label htmlFor="ingredients"></label>
                     <select ref={nameRef}>
                         {ingredientsList}
