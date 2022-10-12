@@ -32,7 +32,10 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/","/register", "/video/**", "/login", "/get-all-recipes", "/add-recipe", "/delete-recipe","/get-one-recipe/**","/filter-recipe-by-category", "/get-all-ingredients-name", "/get-all-units-name" ).permitAll()
+                .antMatchers("/","/register", "/video/**", "/login","/get-all-recipes", "/delete-recipe",
+                        "/get-one-recipe/**","/filter-recipe-by-category", "/get-all-ingredients-name",
+                        "/get-all-units-name" ).permitAll()
+                .antMatchers("/add-recipe").hasRole("CHEF")
                 .anyRequest()
                 .authenticated();
 

@@ -23,6 +23,7 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.security.Key;
 import java.time.LocalDate;
+import java.time.ZonedDateTime;
 import java.util.Date;
 
 
@@ -62,7 +63,7 @@ public class JwtUsernameAndPasswordAuthenticationFilter extends UsernamePassword
                 .setSubject(authResult.getName())
                 .claim("authorities", authResult.getAuthorities())
                 .setIssuedAt(new Date())
-                .setExpiration(java.sql.Date.valueOf(LocalDate.now()))
+                .setExpiration(Date.from(ZonedDateTime.now().plusMinutes(60).toInstant()))
                 .signWith(secretKey)
                 .compact();
 
