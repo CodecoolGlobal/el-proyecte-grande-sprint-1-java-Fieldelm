@@ -2,19 +2,20 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 
 
-const Header = () => {
+const Header = ({isLoggedIn, setIsLoggedIn}) => {
 
    
 
     const userName = localStorage.getItem("user");
 
     
-    const user = userName != null ? <p className="user">{userName}</p> : <></>
+    const user = userName != null && <p className="user">{userName}</p>
 
     const handleLogout = () => {
         
         localStorage.removeItem("token");
         localStorage.removeItem("user");
+        setIsLoggedIn(false);
     }
 
 
@@ -33,7 +34,7 @@ const Header = () => {
               {/* <a onClick={handleLogout()} href="/">Logout</a> */}
                 <Link to="/about-us">About us</Link>
                 {user}
-                {loginButton}
+                {isLoggedIn ? (<a onClick={handleLogout}>Logout</a>): (<Link to="/login">Login</Link>)}
             </nav>
         </div>
     )

@@ -9,7 +9,7 @@ import { useEffect } from "react";
 import jwtDecode from "jwt-decode";
 
 
-const LoginPage = () => {
+const LoginPage = ({setIsLoggedIn}) => {
 
     const [username, setUsername] = useState();
 
@@ -63,6 +63,7 @@ const LoginPage = () => {
             console.log(`decodedToken: ${decodedToken}`);
             localStorage.setItem("user", decodedToken.sub);
             console.log(`User: ${localStorage.getItem("user")}`)
+            setIsLoggedIn(true);
             navigate('/')
             
         }else{
