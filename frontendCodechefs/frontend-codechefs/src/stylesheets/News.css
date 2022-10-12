@@ -3,16 +3,64 @@
     display: flex;
     border-radius: 3px;
     padding: 30px;
+    justify-content: center;
 
 }
 
-.content-container{
+.news-card{
     display: flex;
     padding: 40px;
     background-color: #333333;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.294);
     border-radius: 10px;
     margin: 10px;
-    width: 300px;text-decoration: none;
+    width: 300px;
+    height: 200px;
+    perspective: 1000px;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+    position: relative;
+}
+
+
+
+
+.flip-card-front{
+    border-radius: 10px;
+    margin: 10px;
+    width: 300px;
+    height: 200px;
+    perspective: 1000px;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+    position: relative;
+}
+
+.flip-card-back {
+    border-radius: 10px;
+    margin: 10px;
+    width: 300px;
+    height: 200px;
+    perspective: 1000px;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+    position: relative;
+    transform: rotateY(180deg);
+}
+
+.news-card:hover{
+    transform: rotateY(180deg);
+}
+
+
+.flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100px;
+    height: 200px;
+    -webkit-backface-visibility: hidden; /* Safari */
+    backface-visibility: hidden;
 }
 

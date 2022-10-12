@@ -1,4 +1,7 @@
-
+* {
+    margin: 0;
+    padding: 0;
+}
 
 .recipeCard {
     /* Add shadows to create the "card" effect */
