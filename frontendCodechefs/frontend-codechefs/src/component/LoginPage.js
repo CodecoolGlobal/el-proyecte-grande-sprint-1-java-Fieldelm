@@ -47,8 +47,7 @@ const LoginPage = () => {
     }, [status]);
 
 
-    let baererToken = null;
-    let decodedToken = null;
+    
    
     const login = async(e) => {
         e.preventDefault();
@@ -57,10 +56,10 @@ const LoginPage = () => {
         setStatus(response.status);
 
         if(response.ok){
-            baererToken = response.headers.get('Authorization');
+            let baererToken = response.headers.get('Authorization');
             localStorage.setItem("token", JSON.stringify(baererToken));
             console.log(localStorage.getItem("token"));
-            decodedToken = jwtDecode(baererToken.replace('Baerer ', ''));
+            let decodedToken = jwtDecode(baererToken.replace('Baerer ', ''));
             console.log(`decodedToken: ${decodedToken}`);
             localStorage.setItem("user", decodedToken.sub);
             console.log(`User: ${localStorage.getItem("user")}`)

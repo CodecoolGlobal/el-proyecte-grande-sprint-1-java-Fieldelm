@@ -1,7 +1,8 @@
 import React from 'react'
+import {getApi} from "../util/Fetch"
 
 export const RecipeMainPage = ({recipe}) => {
-  console.log(recipe.name);
+ // console.log(recipe.name);
   
 /* 
   <ul>
@@ -14,24 +15,26 @@ export const RecipeMainPage = ({recipe}) => {
 
   const ingredientList = <ul>
     {recipe.ingredients.map((ingredient)=>(
-      <li key={ingredient.name}>
-          {(ingredient.value !== 0.0)? ingredient.value : ""}   {ingredient.unit}   {ingredient.name}
+      <li key={ingredient.id}>
+          {(ingredient.value !== 0.0)? ingredient.value : ""}   {ingredient.unitType.toLowerCase() +" of"}   {ingredient.name}
       </li>
     ))}
   </ul>
 
   const description = <ol>
-    {recipe.description.map((line, index)=>(
-      <li key={index}>
-        {line}
+    {recipe.instructions.map((instruction)=>(
+      <li key={instruction.id}>
+        {instruction.text}
       </li>
     ))}
   </ol>
+
+
  
   return (
 <div className="recipePageMain">
     <div className= "recipeFirst-container">
-      <img src ={recipe.imageURL} alt={recipe.name} />
+      <img src ={"/"+recipe.imageURL} alt={recipe.name} />
       <div className="recipeIngredients-container">
       <h1>{recipe.name}</h1>
       <h2>Ingredients:</h2>
@@ -42,6 +45,7 @@ export const RecipeMainPage = ({recipe}) => {
     <h2>Method:</h2>
         {description}
     </div>
+    
 </div>
   )
 }
