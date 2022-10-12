@@ -1,4 +1,5 @@
 import Video from "./Video";
+import News from "./News";
 
 const Content = () => {
 
@@ -6,7 +7,7 @@ const Content = () => {
 
         <div >
             <Video/>
-
+            <News/>
         </div>
 
     )
