@@ -13,7 +13,7 @@ const Header = () => {
     }
 
 
-    const loginButton = userName === null ? <Link to="/login">Login</Link> : <button className ="logout" onClick={handleLogout}>Logout</button> 
+    const loginButton = userName === null ? <Link to="/login">Login</Link> : <p className ="logout" onClick={handleLogout}>Logout</p> 
 
     
     return (

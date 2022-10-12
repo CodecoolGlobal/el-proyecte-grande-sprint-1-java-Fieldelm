@@ -21,16 +21,23 @@
     font-size: 30px;
     background-color: darkgoldenrod;
     color: white;
-}
 
-.topnav button{
+}
+.topnav p.logout{
     float: left;
-    color: darkgoldenrod;
+    color: white;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
     font-size: 30px;
+    font-weight: normal;
 }
+
+.topnav .logout:hover{
+    background-color: #ddd;
+    color: black;
+}
+
 
 
 
