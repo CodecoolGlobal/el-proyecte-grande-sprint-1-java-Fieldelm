@@ -1,6 +1,6 @@
 * {
     margin: 0;
-    padding: 0;
+    padding: 2;
 }
 
 .recipeCard {
@@ -58,6 +58,15 @@
     color: black;
     font-weight: 400;
     margin-left: 20px;
+
+
+}
+
+.container__text > h3 {
+    text-decoration: none;
+    color: black;
+    font-weight: 300;
+   
 
 
 }
