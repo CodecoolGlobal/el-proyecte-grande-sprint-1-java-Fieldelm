@@ -87,25 +87,33 @@ const AddRecipe = () => {
 
                     <h1>Add your recipe</h1>
 
-                    <label htmlFor="name"><b>Name</b></label>
-                    <input type="text" placeholder="Enter Name" name="name" required onChange={handleRecipeNameChange}></input>
+                    <div>
+                        <label htmlFor="name"><b>Name</b></label>
+                        <input type="text" placeholder="Enter Name" name="name" required onChange={handleRecipeNameChange}></input>
+                    </div>
+
+                    <div className="Ingredients-label-container">
+                        <h2>Ingredients :</h2>
+                    </div>
+
 
                     {addedIngredient}
 
                     <label htmlFor="value"></label>
                     <input type="number" min="0" max="100" step="0.01" ref={valueRef}/>
 
+                    <label htmlFor="units"></label>
+                    <select ref={unitRef}>
+                        {unitList}
+                    </select>
+
                     <label htmlFor="ingredients"></label>
                     <select ref={nameRef}>
                         {ingredientsList}
                     </select>
 
-                    <label htmlFor="units"></label>
-                    <select ref={unitRef}>
-                        {unitList}
-                    </select>
                     <button onClick={addIngredient}>add ingredients</button>
-
+                    <br/>
 
                     {addedInstruction}
                     <input type={"text"} ref={instructionRef}/>
