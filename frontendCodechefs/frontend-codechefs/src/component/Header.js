@@ -4,7 +4,7 @@ const Header = () => {
 
     const userName = localStorage.getItem("user");
 
-    const user = userName != null ? <Link className="active" to="/">{userName}</Link> : <></>
+    const user = userName != null ? <p className="user">{userName}</p> : <></>
 
     const handleLogout = () => {
         
