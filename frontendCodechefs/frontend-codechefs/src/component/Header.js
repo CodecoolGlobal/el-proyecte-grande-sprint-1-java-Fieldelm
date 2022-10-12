@@ -12,6 +12,10 @@ const Header = () => {
         localStorage.removeItem("user");
     }
 
+
+    const loginButton = userName === null ? <Link to="/login">Login</Link> : <button className ="logout" onClick={handleLogout}>Logout</button> 
+
+    
     return (
         <div className="topnav">
             <nav>
@@ -19,8 +23,8 @@ const Header = () => {
                 <Link to="/all-recipes">Recipes</Link>
                 <Link to="/add-recipe">Add recipes</Link>
                 <Link to="/register">Register</Link>
-                <Link to="/login">Login</Link>
-                  <button onClick={handleLogout}>Logout</button> 
+               {loginButton}
+                  
               {/* <a onClick={handleLogout()} href="/">Logout</a> */}
                 <a href="src/component/Header#about">About us</a>
                 {user}

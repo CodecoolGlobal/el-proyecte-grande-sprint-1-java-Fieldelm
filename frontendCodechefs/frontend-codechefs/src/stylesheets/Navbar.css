@@ -13,7 +13,7 @@
     font-size: 30px;
 }
 
-.topnav p.user{
+.topnav p.user {
     float: left;
     text-align: center;
     padding: 14px 16px;
@@ -23,6 +23,14 @@
     color: white;
 }
 
+.topnav button{
+    float: left;
+    color: darkgoldenrod;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 30px;
+}
 
 
 
