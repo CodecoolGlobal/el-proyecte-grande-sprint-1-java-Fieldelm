@@ -1,8 +1,22 @@
 import { Link } from "react-router-dom";
+import { useState } from "react";
+
 
 const Header = () => {
 
+    const [loggedIn, setLoggedIn] = useState();
+
     const userName = localStorage.getItem("user");
+
+    const handleLoggedIn =()=>{
+        if (localStorage.getItem("user") != null){
+        setLoggedIn(true)
+        }else{
+            setLoggedIn(false)
+        }
+    }
+
+
 
     const user = userName != null ? <p className="user">{userName}</p> : <></>
 
@@ -13,7 +27,7 @@ const Header = () => {
     }
 
 
-    const loginButton = userName === null ? <Link to="/login">Login</Link> : <p className ="logout" onClick={handleLogout}>Logout</p> 
+    const loginButton = userName === null ? <Link to="/login">Login</Link> : <a onClick={handleLogout}>Logout</a> 
 
     
     return (

@@ -23,15 +23,7 @@
     color: white;
 
 }
-.topnav p.logout{
-    float: left;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 30px;
-    font-weight: normal;
-}
+
 
 .topnav .logout:hover{
     background-color: #ddd;
