@@ -1,4 +1,5 @@
 package com.codecool.codechefs.services;
+
 import com.codecool.codechefs.models.*;
 import com.codecool.codechefs.repositories.IngredientRepository;
 import com.codecool.codechefs.repositories.InstructionRepository;
@@ -40,23 +41,24 @@ public class RecipeService {
         return recipeRepository.findAllByCategory(category);
     }
 
-    public String addRecipe(Recipe recipe){
-        DefaultUser creator = userService.getUserById(recipe.getCreator().getId());
-        if(creator!= null){
-            for (Ingredient ingredient :recipe.getIngredients()){
-                ingredientRepository.saveAndFlush(ingredient);
-            }
-            for (Instruction instruction:recipe.getInstructions()){
-                instructionRepository.saveAndFlush(instruction);
-            }
-            recipeRepository.saveAndFlush(recipe);
-            return "ok";
-        }return "failed";
+    public String addRecipe(Recipe recipe) {
+        //DefaultUser creator = userService.getUserById(recipe.getCreator().getId());
+        if (recipe.getCreator() == null) {
+            recipe.setCreator(userService.getUserById((long) 1));
+        }
+        for (Ingredient ingredient : recipe.getIngredients()) {
+            ingredientRepository.saveAndFlush(ingredient);
+        }
+        for (Instruction instruction : recipe.getInstructions()) {
+            instructionRepository.saveAndFlush(instruction);
+        }
+        recipeRepository.saveAndFlush(recipe);
+        return "ok";
 
 
-    }
+}
 
-    public Set<String> getAllIngredients(){
+    public Set<String> getAllIngredients() {
         return ingredientRepository.findAll().stream().
                 map(ingredient -> ingredient.getName()).
                 collect(Collectors.toSet());
@@ -67,9 +69,9 @@ public class RecipeService {
                 collect(Collectors.toList());
     }
 
-    public String deleteById(Long id){
+    public String deleteById(Long id) {
         Recipe recipe = recipeRepository.findById(id).get();
-        if(recipe!= null){
+        if (recipe != null) {
             recipe.getIngredients().forEach(ingredient -> ingredientRepository.delete(ingredient));
             recipe.getInstructions().forEach(instruction -> instructionRepository.delete(instruction));
             recipeRepository.delete(recipe);
@@ -78,9 +80,5 @@ public class RecipeService {
         return "not found";
 
     }
-
-
-
-
 
 }
