@@ -63,6 +63,8 @@ const LoginPage = () => {
             console.log(`decodedToken: ${decodedToken}`);
             localStorage.setItem("user", decodedToken.sub);
             console.log(`User: ${localStorage.getItem("user")}`)
+           
+            
             navigate('/')
             
         }else{

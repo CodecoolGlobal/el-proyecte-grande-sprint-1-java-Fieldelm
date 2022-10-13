@@ -1,6 +1,6 @@
 import {Link} from "react-router-dom";
 
-const RecipeCard = ({name, id, imageURL, isFree, price}) => {
+const RecipeCard = ({name, id, imageURL, price}) => {
 
 const cost = price === 0 ? "free" : `price : ${price}`
 
