@@ -63,6 +63,8 @@ const LoginPage = () => {
             console.log(`decodedToken: ${decodedToken}`);
             localStorage.setItem("user", decodedToken.sub);
             console.log(`User: ${localStorage.getItem("user")}`)
+           
+            
             navigate('/')
             
         }else{
@@ -101,12 +103,12 @@ const LoginPage = () => {
 
                     <div className="inputs">
 
-                        <input type="text" name="name" placeholder="name" autoFocus onChange={handelUserNameChange} />
+                        <input id="login-username" type="text" name="name" placeholder="name" autoFocus onChange={handelUserNameChange} />
 
 
-                        <input type="password" name="password" placeholder="Password" onChange={handelPasswordLoginChange} />
+                        <input id="login-password" type="password" name="password" placeholder="Password" onChange={handelPasswordLoginChange} />
 
-                        <input type="submit" value="login" />
+                        <input id="submit-login" type="submit" value="login" />
 
                     </div>
 

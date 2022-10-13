@@ -100,12 +100,13 @@ const AddRecipe = () => {
 
                 <div className="recipe-name-container">
                     <label htmlFor="name"><b>Name</b></label>
-                    <input type="text" placeholder="Enter Name" name="name" required onChange={handleRecipeNameChange}></input>
+
+                    <input id="recipe-name" type="text" placeholder="Enter Name" name="name" required onChange={handleRecipeNameChange}></input>
                 </div>
 
                 <div className="image-input-container">
                     <img className="recipe-image" src={image}></img>
-                    <input type="file" accept="image/*" onChange={addImage}/>
+                    <input id="add-recipe-img" type="file" accept="image/*" onChange={addImage}/>
                 </div>
 
                 <div className="added-ingredients-full-container">
@@ -119,19 +120,19 @@ const AddRecipe = () => {
 
                     <div className="ingredients-input-container">
                         <label htmlFor="value"></label>
-                        <input type="number" min="0" max="100" step="0.01" ref={valueRef}/>
+                        <input id= "ingredient-input" type="number" min="0" max="100" step="0.01" ref={valueRef}/>
 
                         <label htmlFor="units"></label>
-                        <select ref={unitRef}>
+                        <select id="unit-list" ref={unitRef}>
                             {unitList}
                         </select>
 
                         <label htmlFor="ingredients"></label>
-                        <select ref={nameRef}>
+                        <select id="ingredient-list" ref={nameRef}>
                             {ingredientsList}
                         </select>
 
-                        <button onClick={addIngredient}>add ingredients</button>
+                        <button id="add-ingredient" onClick={addIngredient}>add ingredients</button>
                     </div>
                 </div>
 
@@ -140,19 +141,18 @@ const AddRecipe = () => {
                     <div className="instructions-label-container">
                         <h2>Instructions :</h2>
                     </div>
-
                     <div className="added-instructions-container">
                         {addedInstructions}
                     </div>
 
                     <div className="instruction-input-container">
-                        <input type={"text"} ref={instructionRef}/>
-                        <button onClick={addInstruction}>Add instruction</button>
+                        <input id="instruction" type={"text"} ref={instructionRef}/>
+                        <button id="add-instruction" onClick={addInstruction}>Add instruction</button>
                     </div>
-
                 </div>
 
-                <button className="btn" onClick={addRecipe}>Add your recipe</button>
+                <button id="add-recipe" className="btn" onClick={addRecipe}>Add your recipe</button>
+
 
             </div>
         </div>

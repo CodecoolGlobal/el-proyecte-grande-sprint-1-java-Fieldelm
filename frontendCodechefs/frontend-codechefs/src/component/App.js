@@ -10,12 +10,13 @@ import Header from "./Header";
 import Content from "./Content";
 
 
-function App() {
+function App({isLoggedIn, setIsLoggedIn}) {
+
 
 
     return (
         <div className={"container"}>
-            <Header/>
+            <Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/>
             <Content/>
         </div>
     );
