@@ -10,7 +10,8 @@ const AddRecipe = () => {
 
     const [instructions, setInstructions] = useState([])
     const [ingredients, setIngredients] = useState([]);
-    const [name, setName] = useState()
+    const [name, setName] = useState();
+    const [image, setImage] = useState();
 
 
     //save recipe
@@ -26,8 +27,8 @@ const AddRecipe = () => {
     const unitRef = useRef(null)
     const nameRef = useRef(null)
 
-    const [Units, setUnits] = useState([])
-    const [addedIngredients, setAddedIngredients] = useState([]);
+    const [defaultUnits, setDefaultUnits] = useState([])
+    const [defaultIngredients, setDefaultIngredients] = useState([]);
 
     // set ingredient, instruction, name
     function addInstruction(e) {
@@ -56,62 +57,102 @@ const AddRecipe = () => {
         setName(event.target.value)
     }
 
+    function addImage(e) {
+        const reader = new FileReader();
+        reader.readAsDataURL(e.target.files[0]);
+        reader.onload = () => {
+            const newImage = reader.result
+
+            setImage(newImage);
+        }
+    }
+
     //dropdown data
     useEffect(() => {
         getApi(`/get-all-ingredients-name`)
-            .then(_res => setAddedIngredients(_res))
+            .then(_res => setDefaultIngredients(_res))
     }, []);
 
     useEffect(() => {
         getApi(`/get-all-units-name`)
-            .then(_res => setUnits(_res))
+            .then(_res => setDefaultUnits(_res))
     }, []);
 
-    const ingredientsList = <IngredientDropItem list={addedIngredients}></IngredientDropItem>
-    const unitList = <UnitDropDownItem list={Units}></UnitDropDownItem>
+    const ingredientsList = <IngredientDropItem list={defaultIngredients}></IngredientDropItem>
+    const unitList = <UnitDropDownItem list={defaultUnits}></UnitDropDownItem>
 
 
     // print added instruction, ingredient
-    const addedInstruction = instructions === undefined ? "" : instructions
-        .map(instruction => <InstructionItem text={instruction.text}></InstructionItem>)
+    const addedInstructions = instructions === undefined ? "" : instructions
+        .map((instruction, index) => <InstructionItem key={index} rowNumber={index+1} text={instruction.text}></InstructionItem>)
 
-    const addedIngredient = ingredients === undefined ? "" : ingredients
-        .map(ingredient => <IngredientItem name={ingredient.name} value={ingredient.value} unit={ingredient.unitType}></IngredientItem>)
+    const addedIngredients = ingredients === undefined ? "" : ingredients
+        .map((ingredient, index )=> <IngredientItem key={index} rowNumber={index+1} name={ingredient.name}
+                                                    value={ingredient.value} unit={ingredient.unitType}></IngredientItem>)
 
 
     return (
         <div>
             <Header/>
-            <div >
+            <div className="add-recipe-form-container">
 
+                <h1>Add your recipe</h1>
 
-                    <h1>Add your recipe</h1>
-
+                <div className="recipe-name-container">
                     <label htmlFor="name"><b>Name</b></label>
+
                     <input id="recipe-name" type="text" placeholder="Enter Name" name="name" required onChange={handleRecipeNameChange}></input>
+                </div>
 
-                    <label htmlFor="value"></label>
-                        <input id="recipe-value" type="number" min="0" max="100" step="0.01" ref={valueRef}/>
+                <div className="image-input-container">
+                    <img className="recipe-image" src={image}></img>
+                    <input id="add-recipe-img" type="file" accept="image/*" onChange={addImage}/>
+                </div>
 
-                    {addedIngredient}
-                    <label htmlFor="ingredients"></label>
-                    <select ref={nameRef} id="ingredient-list" >
-                        {ingredientsList}
-                    </select>
+                <div className="added-ingredients-full-container">
+                    <div className="ingredients-label-container">
+                        <h2>Ingredients :</h2>
+                    </div>
 
-                    <label htmlFor="units"></label>
-                    <select ref={unitRef} id="unit-list" >
-                        {unitList}
-                    </select>
-                    <button id="add-ingredient" onClick={addIngredient} >add ingredients</button>
+                    <div className="added-ingredients-container">
+                        {addedIngredients}
+                    </div>
 
+                    <div className="ingredients-input-container">
+                        <label htmlFor="value"></label>
+                        <input id= "ingredient-input" type="number" min="0" max="100" step="0.01" ref={valueRef}/>
 
-                    {addedInstruction}
-                    <input id="instruction" type={"text"} ref={instructionRef}/>
-                    <button id="add-instruction" onClick={addInstruction}>Add instruction</button>
+                        <label htmlFor="units"></label>
+                        <select id="unit-list" ref={unitRef}>
+                            {unitList}
+                        </select>
 
+                        <label htmlFor="ingredients"></label>
+                        <select id="ingredient-list" ref={nameRef}>
+                            {ingredientsList}
+                        </select>
 
-                    <button id="add-recipe" className="btn" onClick={addRecipe}>Add your recipe</button>
+                        <button id="add-ingredient" onClick={addIngredient}>add ingredients</button>
+                    </div>
+                </div>
+
+                <div className="add-instructions-full-container">
+
+                    <div className="instructions-label-container">
+                        <h2>Instructions :</h2>
+                    </div>
+                    <div className="added-instructions-container">
+                        {addedInstructions}
+                    </div>
+
+                    <div className="instruction-input-container">
+                        <input id="instruction" type={"text"} ref={instructionRef}/>
+                        <button id="add-instruction" onClick={addInstruction}>Add instruction</button>
+                    </div>
+                </div>
+
+                <button id="add-recipe" className="btn" onClick={addRecipe}>Add your recipe</button>
+
 
             </div>
         </div>
