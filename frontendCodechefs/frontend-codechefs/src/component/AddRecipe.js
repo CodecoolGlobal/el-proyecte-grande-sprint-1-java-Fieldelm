@@ -88,30 +88,30 @@ const AddRecipe = () => {
                     <h1>Add your recipe</h1>
 
                     <label htmlFor="name"><b>Name</b></label>
-                    <input type="text" placeholder="Enter Name" name="name" required onChange={handleRecipeNameChange}></input>
+                    <input id="recipe-name" type="text" placeholder="Enter Name" name="name" required onChange={handleRecipeNameChange}></input>
 
                     <label htmlFor="value"></label>
-                        <input type="number" min="0" max="100" step="0.01" ref={valueRef}/>
+                        <input id="recipe-value" type="number" min="0" max="100" step="0.01" ref={valueRef}/>
 
                     {addedIngredient}
                     <label htmlFor="ingredients"></label>
-                    <select ref={nameRef}>
+                    <select ref={nameRef} id="ingredient-list" >
                         {ingredientsList}
                     </select>
 
                     <label htmlFor="units"></label>
-                    <select ref={unitRef}>
+                    <select ref={unitRef} id="unit-list" >
                         {unitList}
                     </select>
-                    <button onClick={addIngredient}>add ingredients</button>
+                    <button id="add-ingredient" onClick={addIngredient} >add ingredients</button>
 
 
                     {addedInstruction}
-                    <input type={"text"} ref={instructionRef}/>
-                    <button onClick={addInstruction}>Add instruction</button>
+                    <input id="instruction" type={"text"} ref={instructionRef}/>
+                    <button id="add-instruction" onClick={addInstruction}>Add instruction</button>
 
 
-                    <button className="btn" onClick={addRecipe}>Add your recipe</button>
+                    <button id="add-recipe" className="btn" onClick={addRecipe}>Add your recipe</button>
 
             </div>
         </div>

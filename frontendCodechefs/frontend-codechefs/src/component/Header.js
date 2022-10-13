@@ -28,14 +28,14 @@ const Header = () => {
     return (
         <div className="topnav">
             <nav>
-                <Link className="active" to="/">Home</Link>
-                <Link to="/all-recipes">Recipes</Link>
-                <Link to="/add-recipe">Add recipes</Link>
-                <Link to="/about-us">About us</Link>
+                <Link id="go-home" className="active" to="/">Home</Link>
+                <Link id="go-all-recipes" to="/all-recipes">Recipes</Link>
+                <Link id="go-add-recipes" to="/add-recipe">Add recipes</Link>
+                <Link id="go-about-us" to="/about-us">About us</Link>
                 
-                {userName ===null && <Link to="/register">Register</Link>}
-                {userName !=null && (<p className="user">{userName}</p>)}
-                {userName !=null ? (<a onClick={handleLogout}>Logout</a>): (<Link to="/login">Login</Link>)}
+                {userName ===null && <Link id="go-register" to="/register">Register</Link>}
+                {userName !=null && (<p  className="user">{userName}</p>)}
+                {userName !=null ? (<a id="logout" onClick={handleLogout}>Logout</a>): (<Link id="go-login" to="/login">Login</Link>)}
             </nav>
         </div>
     )
