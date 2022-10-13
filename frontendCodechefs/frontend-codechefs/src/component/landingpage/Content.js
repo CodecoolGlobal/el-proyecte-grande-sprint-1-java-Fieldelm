@@ -1,5 +1,5 @@
 import Video from "./Video";
-import News from "./News";
+import News from "./advices/News";
 
 const Content = () => {
 

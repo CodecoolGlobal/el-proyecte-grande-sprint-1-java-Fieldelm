@@ -1,16 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import App from './component/App';
-import RecipePage from "./component/RecipePage";
+import App from './App';
+import RecipePage from "./recipe/RecipePage";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
-import FetchRecipes from "./component/FetchRecipes";
-import AddRecipe from "./component/AddRecipe";
-import RegisterPage from "./component/RegisterPage";
-import LoginPage from "./component/LoginPage";
-import AboutUs from './component/AboutUs';
-import FirstAdvice from "./component/FirstAdvice";
-import SecondAdvice from "./component/SecondAdvice";
-import ThirdAdvice from "./component/ThirdAdvice";
+import FetchRecipes from "./recipe/allrecipes/FetchRecipes";
+import AddRecipe from "./recipe/addrecipe/AddRecipe";
+import RegisterPage from "./authorization/RegisterPage";
+import LoginPage from "./authorization/LoginPage";
+import AboutUs from './AboutUs';
+import FirstAdvice from "./landingpage/advices/FirstAdvice";
+import SecondAdvice from "./landingpage/advices/SecondAdvice";
+import ThirdAdvice from "./landingpage/advices/ThirdAdvice";
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

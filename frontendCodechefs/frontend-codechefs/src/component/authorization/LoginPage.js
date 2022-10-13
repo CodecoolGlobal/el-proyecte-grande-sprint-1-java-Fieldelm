@@ -1,6 +1,6 @@
-import Header from "./Header";
+import Header from "../landingpage/Header";
 import { useState } from "react";
-import { postFetch } from "../util/Fetch";
+import { postFetch } from "../../util/Fetch";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 

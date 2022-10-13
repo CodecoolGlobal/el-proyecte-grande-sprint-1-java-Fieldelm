@@ -1,7 +1,7 @@
-import Header from "./Header";
+import Header from "../../landingpage/Header";
 import {useEffect, useRef, useState} from "react";
 import InstructionItem from "./InstructionItem";
-import {getApi, postFetch} from "../util/Fetch";
+import {getApi, postFetch} from "../../../util/Fetch";
 import IngredientDropItem from "./IngredientDropItem";
 import IngredientItem from "./IngredientItem";
 import UnitDropDownItem from "./UnitDropDownItem";

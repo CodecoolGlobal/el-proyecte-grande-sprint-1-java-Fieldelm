@@ -1,7 +1,7 @@
 import {useEffect, useState} from "react";
-import {getApi} from "../util/Fetch";
+import {getApi} from "../../../util/Fetch";
 import RecipeCardList from "./RecipeCardList";
-import Header from "./Header";
+import Header from "../../landingpage/Header";
 
 const FetchRecipes = () =>{
 

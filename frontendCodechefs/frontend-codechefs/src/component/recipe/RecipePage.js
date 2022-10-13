@@ -1,8 +1,8 @@
 import { useEffect } from "react";
 import {Navigate, useParams} from "react-router-dom";
-import Header from "./Header";
+import Header from "../landingpage/Header";
 import { useState } from "react";
-import {getApi} from "../util/Fetch"
+import {getApi} from "../../util/Fetch"
 import { RecipeMainPage } from "./RecipeMainPage";
 
 

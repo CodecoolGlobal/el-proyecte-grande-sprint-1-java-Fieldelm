@@ -1,5 +1,5 @@
 import React from 'react'
-import {getApi} from "../util/Fetch"
+import {getApi} from "../../util/Fetch"
 
 export const RecipeMainPage = ({recipe}) => {
  // console.log(recipe.name);

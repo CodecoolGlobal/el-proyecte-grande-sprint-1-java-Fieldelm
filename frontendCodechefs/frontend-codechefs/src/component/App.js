@@ -7,8 +7,8 @@ import '../stylesheets/AddRecipe.css';
 import '../stylesheets/News.css';
 import '../stylesheets/Advice.css';
 
-import Header from "./Header";
-import Content from "./Content";
+import Header from "./landingpage/Header";
+import Content from "./landingpage/Content";
 
 
 function App({isLoggedIn, setIsLoggedIn}) {
