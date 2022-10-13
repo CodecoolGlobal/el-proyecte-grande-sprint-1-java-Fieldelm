@@ -29,7 +29,7 @@ const RegisterPage = () => {
                 navigate('/', { replace: false });
                 break;
             case 409:
-                setErrorMessage('Acount already exists');
+                setErrorMessage('Account already exists');
                 break;
             default:
                 setErrorMessage('Unknown ' + status)
