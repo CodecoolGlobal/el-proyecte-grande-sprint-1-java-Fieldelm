@@ -56,6 +56,14 @@ const AddRecipe = () => {
         setName(event.target.value)
     }
 
+    function addImage(e){
+        const reader = new FileReader();
+        reader.readAsDataURL(e.target.files[0]);
+        reader.onload = () => {
+            console.log(reader.result)
+        }
+    }
+
     //dropdown data
     useEffect(() => {
         getApi(`/get-all-ingredients-name`)
@@ -92,8 +100,8 @@ const AddRecipe = () => {
                     <input type="text" placeholder="Enter Name" name="name" required onChange={handleRecipeNameChange}></input>
                 </div>
 
-                <div className="image input-container">
-                    <input type="file" accept="image/*" onChange={}/>
+                <div className="image-input-container">
+                    <input type="file" accept="image/*" onChange={addImage}/>
                 </div>
 
                 <div className="added-ingredients-full-container">
