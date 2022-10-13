@@ -14,16 +14,23 @@ const AddRecipe = () => {
     const [name, setName] = useState();
     const [image, setImage] = useState();
     
+
+    
     const navigate = useNavigate();
 
+    const creator = {
+        name : localStorage.getItem("user")
+    }
 
+    
     //save recipe
     const addRecipe = (e) =>{
         e.preventDefault()
 
-        postFetch("/add-recipe", {name, ingredients, instructions, category}).then(r => console.log("add recipe"))
+        postFetch("/add-recipe", {name, ingredients, instructions, category, creator}).then(r => console.log("add recipe"))
         navigate("/all-recipes")
         window.location.reload();
+        
     }
 
 
