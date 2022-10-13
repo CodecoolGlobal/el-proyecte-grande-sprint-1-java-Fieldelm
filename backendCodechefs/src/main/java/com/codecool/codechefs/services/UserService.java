@@ -35,6 +35,10 @@ public class UserService implements UserDetailsService {
         return userRepository.existsByEmail(email);
     }
 
+    public DefaultUser getUserByName(String userName) {
+        return userRepository.findDefaultUserByName(userName);
+    }
+
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         DefaultUser user = userRepository.findDefaultUserByName(username);

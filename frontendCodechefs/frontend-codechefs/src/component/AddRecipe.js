@@ -5,6 +5,7 @@ import {getApi, postFetch} from "../util/Fetch";
 import IngredientDropItem from "./IngredientDropItem";
 import IngredientItem from "./IngredientItem";
 import UnitDropDownItem from "./UnitDropDownItem";
+import { useNavigate } from "react-router-dom";
 
 const AddRecipe = () => {
 
@@ -12,23 +13,39 @@ const AddRecipe = () => {
     const [ingredients, setIngredients] = useState([]);
     const [name, setName] = useState();
     const [image, setImage] = useState();
+    
 
+    
+    const navigate = useNavigate();
 
+    const creator = {
+        name : localStorage.getItem("user")
+    }
+
+    
     //save recipe
     const addRecipe = (e) =>{
         e.preventDefault()
 
-        postFetch("/add-recipe", {name, ingredients, instructions}).then(r => console.log("add recipe"))
+        postFetch("/add-recipe", {name, ingredients, instructions, category, creator}).then(r => console.log("add recipe"))
+        navigate("/all-recipes")
+        window.location.reload();
+        
     }
 
+
+    const [categories, setCategories] = useState([]);
+    const [category, setCategory] = useState("MAIN_DISH")
 
     const instructionRef = useRef(null)
     const valueRef = useRef(null)
     const unitRef = useRef(null)
     const nameRef = useRef(null)
-
+    const newIngredientNameref = useRef(null)
+    const categoryRef = useRef(null)
     const [defaultUnits, setDefaultUnits] = useState([])
     const [defaultIngredients, setDefaultIngredients] = useState([]);
+   
 
     // set ingredient, instruction, name
     function addInstruction(e) {
@@ -46,7 +63,7 @@ const AddRecipe = () => {
         e.preventDefault()
         const newIngredients = [...ingredients]
         const newIngredient = {}
-        newIngredient.name = nameRef.current.value
+        newIngredient.name = newIngredientNameref.current.value ==="" ? nameRef.current.value : newIngredientNameref.current.value;
         newIngredient.value = valueRef.current.value
         newIngredient.unitType = unitRef.current.value
         newIngredients.push(newIngredient)
@@ -55,6 +72,11 @@ const AddRecipe = () => {
 
     const handleRecipeNameChange = (event) => {
         setName(event.target.value)
+    }
+
+    function handleCategoryChange(e){
+    
+        setCategory(e.targer.value)
     }
 
     function addImage(e) {
@@ -78,9 +100,14 @@ const AddRecipe = () => {
             .then(_res => setDefaultUnits(_res))
     }, []);
 
-    const ingredientsList = <IngredientDropItem list={defaultIngredients}></IngredientDropItem>
-    const unitList = <UnitDropDownItem list={defaultUnits}></UnitDropDownItem>
+    useEffect(() => {
+        getApi(`/get-all-category`)
+            .then(_res => setCategories(_res))
+    }, []);
 
+    const ingredientsList = <IngredientDropItem list={defaultIngredients.sort()}></IngredientDropItem>
+    const unitList = <UnitDropDownItem list={defaultUnits.sort()}></UnitDropDownItem>
+    const categoryList = <IngredientDropItem list ={categories}></IngredientDropItem>
 
     // print added instruction, ingredient
     const addedInstructions = instructions === undefined ? "" : instructions
@@ -90,6 +117,7 @@ const AddRecipe = () => {
         .map((ingredient, index )=> <IngredientItem key={index} rowNumber={index+1} name={ingredient.name}
                                                     value={ingredient.value} unit={ingredient.unitType}></IngredientItem>)
 
+                                               
 
     return (
         <div>
@@ -97,6 +125,12 @@ const AddRecipe = () => {
             <div className="add-recipe-form-container">
 
                 <h1>Add your recipe</h1>
+                <div>
+                <label htmlFor="categories"></label>
+                        <select id="category-list" ref={categoryRef} onChange={handleCategoryChange}>
+                            {categoryList}
+                        </select>
+                </div>
 
                 <div className="recipe-name-container">
                     <label htmlFor="name"><b>Name</b></label>
@@ -131,6 +165,7 @@ const AddRecipe = () => {
                         <select id="ingredient-list" ref={nameRef}>
                             {ingredientsList}
                         </select>
+                        <input id="new-ingredient" type="text" placeholder="add new ingredient here" ref={newIngredientNameref}/>
 
                         <button id="add-ingredient" onClick={addIngredient}>add ingredients</button>
                     </div>
