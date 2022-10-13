@@ -1,8 +1,8 @@
-const InstructionItem = ({text}) => {
+const InstructionItem = ({rowNumber, text}) => {
     return(
-        <>
-            {text}
-        </>
+        <div className="instruction-container">
+            <p>{rowNumber}. {text}</p>
+        </div>
     )
 }
 

@@ -45,7 +45,11 @@ public class RecipeService {
         //DefaultUser creator = userService.getUserById(recipe.getCreator().getId());
         if (recipe.getCreator() == null) {
             recipe.setCreator(userService.getUserById((long) 1));
+        }else{
+            DefaultUser creator = userService.getUserByName(recipe.getCreator().getName());
+            recipe.setCreator(creator);
         }
+
         for (Ingredient ingredient : recipe.getIngredients()) {
             ingredientRepository.saveAndFlush(ingredient);
         }
@@ -69,16 +73,31 @@ public class RecipeService {
                 collect(Collectors.toList());
     }
 
+    public List<String> getAllCategory(){
+        return Arrays.stream(RecipeCategory.values()).map(Enum::name).collect(Collectors.toList());
+    }
+
     public String deleteById(Long id) {
+        try{
         Recipe recipe = recipeRepository.findById(id).get();
         if (recipe != null) {
             recipe.getIngredients().forEach(ingredient -> ingredientRepository.delete(ingredient));
             recipe.getInstructions().forEach(instruction -> instructionRepository.delete(instruction));
             recipeRepository.delete(recipe);
             return "deleted";
+        }}
+        catch (Exception e){
+            return "not found";
         }
-        return "not found";
+        return "";
 
     }
+    public String deleteByIds(List<Long> ids) {
+        String deleted = "";
 
+        for (Long id : ids) {
+            deleted += String.format("id %d is %s, ", id, deleteById(id));
+        }
+       return deleted;
+    }
 }

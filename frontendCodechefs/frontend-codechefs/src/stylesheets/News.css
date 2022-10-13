@@ -3,16 +3,105 @@
     display: flex;
     border-radius: 3px;
     padding: 30px;
+    justify-content: center;
 
 }
 
-.content-container{
+.news-card{
     display: flex;
     padding: 40px;
-    background-color: #333333;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.294);
+    background-size:     cover;
+    background-repeat:   no-repeat;
+    background-position: center center;
     border-radius: 10px;
     margin: 10px;
-    width: 300px;text-decoration: none;
+    width: 300px;
+    height: 200px;
+    perspective: 1000px;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+    position: relative;
 }
+
+.news-card1{
+    background-image: url("https://image-api.nosalty.hu/nosalty/images/article-images/Qi/z4/PGWq4ZPTMM8UZp171VMkKMRoRB016wHm0pVVcF7M.jpeg?w=740&fit=contain&fm=webp&s=3130e6b47d37d63ef8a89d0614cd21f3");
+}
+
+.news-card2{
+    background-image: url("https://image-api.nosalty.hu/nosalty/images/article-images/Hb/zP/sdeUPSYlCH9Pi7urEx04vRD8CgV5JMwYUVArmL5f.jpeg?w=740&fit=contain&fm=webp&s=f87b37de0eece55c7f34d679d83a0b82");
+}
+
+.news-card3{
+    background-image: url("https://image-api.nosalty.hu/nosalty/images/article-images/Lz/Up/7bN5DLRh0OcWYXF7Jzi5viqezJBiV92i05NMzFbB.jpeg?w=740&fit=contain&fm=webp&s=26c3555f24bbd69b3600295d9e7bb339");
+}
+.headline{
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+}
+
+.flip-card-front{
+    border-radius: 10px;
+    margin: 10px;
+    width: 300px;
+    height: 200px;
+    perspective: 1000px;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+    position: relative;
+}
+
+.flip-card-back {
+    border-radius: 10px;
+    margin: 10px;
+    width: 300px;
+    height: 200px;
+    perspective: 1000px;
+    text-align: center;
+    justify-content: center;
+    transition: transform 0.8s ease-in-out;
+    transform-style: preserve-3d;
+    background-color: white;
+    opacity: 0.8;
+    transform: rotateY(180deg);
+    font-size: 15px;
+}
+
+.news-card1:hover{
+    transform: rotateY(180deg);
+}
+
+.news-card2:hover{
+    transform: rotateY(180deg);
+}
+
+.news-card3:hover{
+    transform: rotateY(180deg);
+}
+
+
+.flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 300px;
+    height: 200px;
+    -webkit-backface-visibility: hidden; /* Safari */
+    backface-visibility: hidden;
+}
+
+.news-button{
+    color: black;
+    background-color: white;
+    border-radius: 10px;
+    margin: 5px;
+    width: 100px;
+    height: 50px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+
+
 

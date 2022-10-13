@@ -42,6 +42,11 @@ public class RecipeController {
         return recipeService.deleteById(id);
     }
 
+    @DeleteMapping(value = "delete-multiple-recipes")
+    public String deleteMultipleRecipes(@RequestBody List<Long> ids){
+        return recipeService.deleteByIds(ids);
+    }
+
     @GetMapping(value = "get-all-ingredients-name")
     public Set<String> getAllIngredient(){
         return recipeService.getAllIngredients();
@@ -51,6 +56,12 @@ public class RecipeController {
     public List<String> getAllUnitType(){
         return recipeService.getAllUnit();
     }
+
+    @GetMapping(value = "get-all-category")
+    public List<String> getAllCategory(){
+        return recipeService.getAllCategory();
+    }
+
 
 
     /*@GetMapping(value = "filter-recipe-by-ingredients")

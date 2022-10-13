@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Header from "./Header";
-import { getApi, postFetch } from "../util/Fetch";
+import { postFetch } from "../util/Fetch";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 
@@ -29,7 +29,7 @@ const RegisterPage = () => {
                 navigate('/', { replace: false });
                 break;
             case 409:
-                setErrorMessage('Acount already exists');
+                setErrorMessage('Account already exists');
                 break;
             default:
                 setErrorMessage('Unknown ' + status)
@@ -83,13 +83,13 @@ const RegisterPage = () => {
 
                     <div className="inputs">
 
-                        <input type="text" name="name" placeholder="name" autoFocus onChange={handleNameChange} />
+                        <input id="register-username" type="text" name="name" placeholder="name" autoFocus onChange={handleNameChange} />
 
-                        <input type="email" name="email" placeholder="e-mail" onChange={handleEmailChange} />
+                        <input id="register-email" type="email" name="email" placeholder="e-mail" onChange={handleEmailChange} />
 
-                        <input type="password" name="password" placeholder="Password" onChange={handlePasswordChange} />
+                        <input id="register-password" type="password" name="password" placeholder="Password" onChange={handlePasswordChange} />
 
-                        <select onChange={handleRoleChange}>
+                        <select id="select-role" onChange={handleRoleChange}>
 
                             <option value={"CUSTOMER"}>CUSTOMER</option>
                             <option value={"CHEF"}>CHEF</option>
@@ -97,7 +97,7 @@ const RegisterPage = () => {
 
 
                         <div className="checkboxy">
-                            <input name="cecky" id="checky" value="1" type="checkbox" /><label className="terms">I accept the
+                            <input name="cecky" id="checky" value="1" type="checkbox" required /><label className="terms">I accept the
                                 terms of
                                 use</label>
                         </div>
