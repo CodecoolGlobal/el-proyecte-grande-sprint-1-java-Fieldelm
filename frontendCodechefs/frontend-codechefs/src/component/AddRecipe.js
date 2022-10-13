@@ -10,7 +10,8 @@ const AddRecipe = () => {
 
     const [instructions, setInstructions] = useState([])
     const [ingredients, setIngredients] = useState([]);
-    const [name, setName] = useState()
+    const [name, setName] = useState();
+    const [image, setImage] = useState();
 
 
     //save recipe
@@ -56,11 +57,13 @@ const AddRecipe = () => {
         setName(event.target.value)
     }
 
-    function addImage(e){
+    function addImage(e) {
         const reader = new FileReader();
         reader.readAsDataURL(e.target.files[0]);
         reader.onload = () => {
-            console.log(reader.result)
+            const newImage = reader.result
+
+            setImage(newImage);
         }
     }
 
@@ -101,6 +104,7 @@ const AddRecipe = () => {
                 </div>
 
                 <div className="image-input-container">
+                    <img className="recipe-image" src={image}></img>
                     <input type="file" accept="image/*" onChange={addImage}/>
                 </div>
 
