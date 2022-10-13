@@ -1,10 +1,11 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-
-const Header = ({isLoggedIn, setIsLoggedIn}) => {
+const Header = () => {
 
    
+    const navigate = useNavigate();
 
     const userName = localStorage.getItem("user");
 
@@ -15,7 +16,9 @@ const Header = ({isLoggedIn, setIsLoggedIn}) => {
         
         localStorage.removeItem("token");
         localStorage.removeItem("user");
-        setIsLoggedIn(false);
+        //setIsLoggedIn(false);
+        navigate("/")
+     
     }
 
 
@@ -29,9 +32,10 @@ const Header = ({isLoggedIn, setIsLoggedIn}) => {
                 <Link to="/all-recipes">Recipes</Link>
                 <Link to="/add-recipe">Add recipes</Link>
                 <Link to="/about-us">About us</Link>
-                {!isLoggedIn && <Link to="/register">Register</Link>}
-                {isLoggedIn && (<p className="user">{userName}</p>)}
-                {isLoggedIn ? (<a onClick={handleLogout}>Logout</a>): (<Link to="/login">Login</Link>)}
+                
+                {userName ===null && <Link to="/register">Register</Link>}
+                {userName !=null && (<p className="user">{userName}</p>)}
+                {userName !=null ? (<a onClick={handleLogout}>Logout</a>): (<Link to="/login">Login</Link>)}
             </nav>
         </div>
     )
