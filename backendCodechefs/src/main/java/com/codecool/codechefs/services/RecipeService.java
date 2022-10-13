@@ -69,6 +69,10 @@ public class RecipeService {
                 collect(Collectors.toList());
     }
 
+    public List<String> getAllCategory(){
+        return Arrays.stream(RecipeCategory.values()).map(Enum::name).collect(Collectors.toList());
+    }
+
     public String deleteById(Long id) {
         Recipe recipe = recipeRepository.findById(id).get();
         if (recipe != null) {
