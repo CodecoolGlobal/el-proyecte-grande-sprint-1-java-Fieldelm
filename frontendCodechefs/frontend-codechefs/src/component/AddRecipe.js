@@ -76,7 +76,8 @@ const AddRecipe = () => {
         .map((instruction, index) => <InstructionItem key={index} rowNumber={index+1} text={instruction.text}></InstructionItem>)
 
     const addedIngredients = ingredients === undefined ? "" : ingredients
-        .map((ingredient, index )=> <IngredientItem key={index} rowNumber={index+1} name={ingredient.name} value={ingredient.value} unit={ingredient.unitType}></IngredientItem>)
+        .map((ingredient, index )=> <IngredientItem key={index} rowNumber={index+1} name={ingredient.name}
+                                                    value={ingredient.value} unit={ingredient.unitType}></IngredientItem>)
 
 
     return (
@@ -89,6 +90,10 @@ const AddRecipe = () => {
                 <div className="recipe-name-container">
                     <label htmlFor="name"><b>Name</b></label>
                     <input type="text" placeholder="Enter Name" name="name" required onChange={handleRecipeNameChange}></input>
+                </div>
+
+                <div className="image input-container">
+                    <input type="file" accept="image/*" onChange={}/>
                 </div>
 
                 <div className="added-ingredients-full-container">
@@ -133,9 +138,9 @@ const AddRecipe = () => {
                         <button onClick={addInstruction}>Add instruction</button>
                     </div>
 
-
-                    <button className="btn" onClick={addRecipe}>Add your recipe</button>
                 </div>
+
+                <button className="btn" onClick={addRecipe}>Add your recipe</button>
 
             </div>
         </div>
