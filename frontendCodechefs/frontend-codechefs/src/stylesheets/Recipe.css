@@ -62,6 +62,15 @@
 
 }
 
+.container__text > h3 {
+    text-decoration: none;
+    color: black;
+    font-weight: 300;
+   
+
+
+}
+
 .container__text > img {
     width: 100px;
     height: 100px;

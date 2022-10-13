@@ -14,7 +14,7 @@ const FetchRecipes = () =>{
 
 
     const cardList = recipes === undefined ? "loading..." : <RecipeCardList list={recipes}></RecipeCardList>
-    console.log(cardList)
+    //console.log(cardList)
 
     return(
         <div>
