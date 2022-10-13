@@ -1,3 +1,5 @@
+import {Link} from "react-router-dom";
+
 const News = () =>{
     return (
         <div>
@@ -11,7 +13,7 @@ const News = () =>{
                     </div>
                     <div className="flip-card-back">
                         <h1>The fish won't stick to the pan with this trick.</h1>
-                        <button className="news-button">Read</button>
+                        <Link to="/first-advice">Read</Link>
                     </div>
                 </div>
                 <div className=" news-card news-card2">
@@ -19,7 +21,7 @@ const News = () =>{
                     </div>
                     <div className="flip-card-back">
                         <h1>Therefore, do not heat casseroles in the microwave.</h1>
-                        <button className="news-button">Read</button>
+                        <Link to="/second-advice">Read</Link>
                     </div>
                 </div>
                 <div className="news-card news-card3">
@@ -27,7 +29,7 @@ const News = () =>{
                     </div>
                     <div className="flip-card-back">
                         <h1>This is how to make the perfect and simple chocolate sauce.</h1>
-                        <button className="news-button">Read</button>
+                        <Link to="/third-advice">Read</Link>
                     </div>
                 </div>
 

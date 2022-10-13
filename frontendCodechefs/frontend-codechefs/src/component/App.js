@@ -5,6 +5,7 @@ import '../stylesheets/RecipePage.css';
 import '../stylesheets/Register.css';
 import '../stylesheets/AddRecipe.css';
 import '../stylesheets/News.css';
+import '../stylesheets/Advice.css';
 
 import Header from "./Header";
 import Content from "./Content";
