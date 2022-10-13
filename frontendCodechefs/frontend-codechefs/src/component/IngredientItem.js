@@ -1,7 +1,7 @@
-const IngredientItem = ({index, name, value, unit}) => {
+const IngredientItem = ({rowNumber, name, value, unit}) => {
     return(
         <div className="ingredient-container">
-            <p>{index+1}. {value} {unit} {name}</p>
+            <p>{rowNumber}. {value} {unit} {name}</p>
         </div>
     )
 }
