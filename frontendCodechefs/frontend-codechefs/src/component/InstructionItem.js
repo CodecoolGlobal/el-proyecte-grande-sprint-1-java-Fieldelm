@@ -1,8 +1,8 @@
 const InstructionItem = ({text}) => {
     return(
-        <>
-            {text}
-        </>
+        <div className="instruction-container">
+            <p>{text}</p>
+        </div>
     )
 }
 
