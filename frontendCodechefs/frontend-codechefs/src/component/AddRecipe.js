@@ -73,10 +73,10 @@ const AddRecipe = () => {
 
     // print added instruction, ingredient
     const addedInstructions = instructions === undefined ? "" : instructions
-        .map(instruction => <InstructionItem text={instruction.text}></InstructionItem>)
+        .map((instruction, index) => <InstructionItem index={index} text={instruction.text}></InstructionItem>)
 
     const addedIngredients = ingredients === undefined ? "" : ingredients
-        .map(ingredient => <IngredientItem name={ingredient.name} value={ingredient.value} unit={ingredient.unitType}></IngredientItem>)
+        .map((ingredient, index )=> <IngredientItem index={index} name={ingredient.name} value={ingredient.value} unit={ingredient.unitType}></IngredientItem>)
 
 
     return (
