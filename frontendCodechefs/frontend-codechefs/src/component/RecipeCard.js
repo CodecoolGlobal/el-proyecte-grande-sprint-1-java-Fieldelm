@@ -2,7 +2,7 @@ import {Link} from "react-router-dom";
 
 const RecipeCard = ({name, id, imageURL, price}) => {
 
-const cost = price === 0 ? "free" : `price : ${price}`
+const cost = price === 0 ? "   free" : `price : ${price} huf`
 
     return (
             <div className="recipe-container">
