@@ -26,8 +26,8 @@ const AddRecipe = () => {
     const unitRef = useRef(null)
     const nameRef = useRef(null)
 
-    const [Units, setUnits] = useState([])
-    const [addedIngredients, setAddedIngredients] = useState([]);
+    const [defaultUnits, setDefaultUnits] = useState([])
+    const [defaultIngredients, setDefaultIngredients] = useState([]);
 
     // set ingredient, instruction, name
     function addInstruction(e) {
@@ -59,68 +59,83 @@ const AddRecipe = () => {
     //dropdown data
     useEffect(() => {
         getApi(`/get-all-ingredients-name`)
-            .then(_res => setAddedIngredients(_res))
+            .then(_res => setDefaultIngredients(_res))
     }, []);
 
     useEffect(() => {
         getApi(`/get-all-units-name`)
-            .then(_res => setUnits(_res))
+            .then(_res => setDefaultUnits(_res))
     }, []);
 
-    const ingredientsList = <IngredientDropItem list={addedIngredients}></IngredientDropItem>
-    const unitList = <UnitDropDownItem list={Units}></UnitDropDownItem>
+    const ingredientsList = <IngredientDropItem list={defaultIngredients}></IngredientDropItem>
+    const unitList = <UnitDropDownItem list={defaultUnits}></UnitDropDownItem>
 
 
     // print added instruction, ingredient
-    const addedInstruction = instructions === undefined ? "" : instructions
+    const addedInstructions = instructions === undefined ? "" : instructions
         .map(instruction => <InstructionItem text={instruction.text}></InstructionItem>)
 
-    const addedIngredient = ingredients === undefined ? "" : ingredients
+    const addedIngredients = ingredients === undefined ? "" : ingredients
         .map(ingredient => <IngredientItem name={ingredient.name} value={ingredient.value} unit={ingredient.unitType}></IngredientItem>)
 
 
     return (
         <div>
             <Header/>
-            <div >
+            <div className="add-recipe-form-container">
 
+                <h1>Add your recipe</h1>
 
-                    <h1>Add your recipe</h1>
+                <div className="recipe-name-container">
+                    <label htmlFor="name"><b>Name</b></label>
+                    <input type="text" placeholder="Enter Name" name="name" required onChange={handleRecipeNameChange}></input>
+                </div>
 
-                    <div>
-                        <label htmlFor="name"><b>Name</b></label>
-                        <input type="text" placeholder="Enter Name" name="name" required onChange={handleRecipeNameChange}></input>
-                    </div>
-
-                    <div className="Ingredients-label-container">
+                <div className="added-ingredients-full-container">
+                    <div className="ingredients-label-container">
                         <h2>Ingredients :</h2>
                     </div>
 
+                    <div className="added-ingredients-container">
+                        {addedIngredients}
+                    </div>
 
-                    {addedIngredient}
+                    <div className="ingredients-input-container">
+                        <label htmlFor="value"></label>
+                        <input type="number" min="0" max="100" step="0.01" ref={valueRef}/>
 
-                    <label htmlFor="value"></label>
-                    <input type="number" min="0" max="100" step="0.01" ref={valueRef}/>
+                        <label htmlFor="units"></label>
+                        <select ref={unitRef}>
+                            {unitList}
+                        </select>
 
-                    <label htmlFor="units"></label>
-                    <select ref={unitRef}>
-                        {unitList}
-                    </select>
+                        <label htmlFor="ingredients"></label>
+                        <select ref={nameRef}>
+                            {ingredientsList}
+                        </select>
 
-                    <label htmlFor="ingredients"></label>
-                    <select ref={nameRef}>
-                        {ingredientsList}
-                    </select>
+                        <button onClick={addIngredient}>add ingredients</button>
+                    </div>
+                </div>
 
-                    <button onClick={addIngredient}>add ingredients</button>
-                    <br/>
+                <div className="add-instructions-full-container">
 
-                    {addedInstruction}
-                    <input type={"text"} ref={instructionRef}/>
-                    <button onClick={addInstruction}>Add instruction</button>
+                    <div className="instructions-label-container">
+                        <h2>Instructions :</h2>
+                    </div>
+
+                    <div className="added-instructions-container">
+                        {addedInstructions}
+                    </div>
+
+                    <div className="instruction-input-container">
+                        <input type={"text"} ref={instructionRef}/>
+                        <button onClick={addInstruction}>Add instruction</button>
+                    </div>
 
 
                     <button className="btn" onClick={addRecipe}>Add your recipe</button>
+                </div>
 
             </div>
         </div>
