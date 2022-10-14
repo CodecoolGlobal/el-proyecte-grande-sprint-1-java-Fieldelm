@@ -1,5 +1,6 @@
 package com.codecool.codechefs.security;
 
+import com.codecool.codechefs.models.Role;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
@@ -33,14 +34,18 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
                 .csrf().disable()
                 .authorizeRequests()
                 .antMatchers("/","/register", "/video/**", "/login","/get-all-recipes", "/delete-recipe",
-                        "/get-one-recipe/**","/filter-recipe-by-category", "/get-all-ingredients-name",
-                        "/get-all-units-name", "/recipe_img/**" ).permitAll()
-                .antMatchers("/add-recipe").hasRole("CHEF")
+                        "/filter-recipe-by-category", "/get-all-ingredients-name",
+                        "/get-all-units-name", "/recipe_img/**", "/get-all-category" ).permitAll()
+                .antMatchers("/add-recipe")
+                    .hasAuthority(Role.CHEF.name())
+                .antMatchers("/get-one-recipe/**")
+                    .hasAnyAuthority(Role.CHEF.name(), Role.CUSTOMER.name(), Role.ADMIN.name())
                 .anyRequest()
                 .authenticated();
 
         http
-                .addFilter(new JwtUsernameAndPasswordAuthenticationFilter(authenticationManager()));
+                .addFilter(new JwtUsernameAndPasswordAuthenticationFilter(authenticationManager()))
+                .addFilterAfter(new JwtTokenVerifier(), JwtUsernameAndPasswordAuthenticationFilter.class);
 
 
     }
